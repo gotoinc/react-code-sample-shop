@@ -7,11 +7,11 @@ import { fetchPizzas } from '../redux/actions/pizzas';
 function Home() {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
-  // React.useEffect(() => {
-  //   if (!items.length) {
-  // dispatch(fetchPizzas());
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    if (!items.length) {
+      dispatch(fetchPizzas());
+    }
+  }, []);
   const categoryNames = [
     'Мясные',
     'Вегетарианская',

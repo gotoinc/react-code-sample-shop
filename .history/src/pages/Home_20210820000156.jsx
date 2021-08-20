@@ -9,7 +9,7 @@ function Home() {
   const items = useSelector(({ pizzas }) => pizzas.items);
   // React.useEffect(() => {
   //   if (!items.length) {
-  // dispatch(fetchPizzas());
+  //     dispatch(fetchPizzas());
   //   }
   // }, []);
   const categoryNames = [
