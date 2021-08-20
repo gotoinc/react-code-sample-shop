@@ -4,13 +4,13 @@ import './scss/index.scss';
 import { Header } from './components';
 import { Home, Cart } from './pages';
 import { Route } from 'react-router-dom';
-import { fetchPizzas,    setPizzas } from './redux/actions/pizzas';
+import { fetchPizzas } from './redux/actions/pizzas';
 
 function App() {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(fetchPizzas());
-  }, [dispatch]);
+    console.log(dispatch(FETCH));
+  }, []);
 
   return (
     <div className="wrapper">

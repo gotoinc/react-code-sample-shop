@@ -1,8 +1,9 @@
 import axios from 'axios';
-
-export const fetchPizzas = () => (dispatch) => {
+export const fetchPizzas = () => {
+ c onst dispatch = useDispatch();
   axios.get('http://localhost:3001/pizzas').then(({ data }) => {
-    dispatch(setPizzas(data));
+    // console.log('БЫЛ ВЫЗОВ ПОЛУЧЕНИЯ ПИЦЦ');
+    setPizzas(data);
   });
 };
 export const setPizzas = (items) => ({
