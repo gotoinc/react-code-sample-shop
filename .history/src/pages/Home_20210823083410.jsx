@@ -45,10 +45,7 @@ function Home() {
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
-        {isLoaded &&
-          items.map((obj) => (
-            <PizzaBlock isLoading={true} key={obj.id} {...obj} />
-          ))}
+        {isLoaded && items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
       </div>
     </div>
   );
