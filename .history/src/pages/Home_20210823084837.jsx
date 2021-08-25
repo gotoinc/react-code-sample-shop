@@ -5,7 +5,7 @@ import {
   Categories,
   SortPopup,
   PizzaBlock,
-  PizzaLoadingBlock,
+
 } from '../components';
 import { setCategory } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';

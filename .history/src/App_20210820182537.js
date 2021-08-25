@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './scss/index.scss';
 import { Header } from './components';
 import { Home, Cart } from './pages';
