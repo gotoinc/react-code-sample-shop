@@ -2,7 +2,7 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 function LoadingBlock() {
   return (
-    <div>
+    <div className="pizza-block">
       <ContentLoader
         speed={2}
         width={280}
