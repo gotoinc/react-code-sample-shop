@@ -1,10 +1,9 @@
-export const setSortBy = (obj) => ({
+export const setSortBy = ({ type, order }) => ({
   type: 'SET_SORT_BY',
-  payload: obj,
+  payload: { type, order },
 });
 
 export const setCategory = (index) => {
-  console.log(index)
   return {
     type: 'SET_CATEGORY',
     payload: index,

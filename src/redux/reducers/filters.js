@@ -1,13 +1,15 @@
 const initialState = {
   category: null,
-  sortBy: 'popular',
+  sortBy: {
+    type: 'popylar',
+    order: 'desc'
+  },
 };
 const filters = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_SORT_BY':
       return { ...state, sortBy: action.payload };
     case 'SET_CATEGORY':
-      console.log(action)
       return { ...state, category: action.payload };
     default:
       return state
