@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import filtersReducer from './filters';
-import pizzasReducer from './pizzas';
-import cartReducer from './cart';
+import filters from './filters';
+import pizzas from './pizzas';
+import cart from './cart';
 const rootReducer = combineReducers({
-  pizzas: pizzasReducer,
-  cart: cartReducer,
-  filters: filtersReducer,
+  pizzas,
+  cart,
+  filters,
 });
 
 export default rootReducer;
