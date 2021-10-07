@@ -25,12 +25,11 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
       name,
       imageUrl,
       price,
-      size: typeNames[activeType],
-      type: avaliableSizes[activeSize]
+      type: typeNames[activeType],
+      size: avaliableSizes[activeSize]
     }
     onClickAddPizza(obj)
   };
-  // console.log(addedCount)
 
   return (
     <div className="pizza-block">

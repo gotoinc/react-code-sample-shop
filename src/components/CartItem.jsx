@@ -1,18 +1,19 @@
 import React from 'react'
 import Buttom from '../components/Button'
 
-function CartItem({ id, name, type, size, totalPrice, totalCount, onRemove, onMinus, onPlus }) {
+function CartItem({ pizzaKey, id, name, type, size, totalPrice, totalCount, onRemove, onMinus, onPlus }) {
 
    const handleRemoveClick = () => {
-      onRemove(id)
+      onRemove({ key: pizzaKey, id, removedPizzaAmount: totalCount })
    };
 
    const handleMinusClick = () => {
-      onMinus(id)
+      if (totalCount <= 1) return
+      onMinus({ key: pizzaKey, id })
    };
 
    const handlePlusClick = () => {
-      onPlus(id)
+      onPlus({ key: pizzaKey, id })
    };
 
    return (
