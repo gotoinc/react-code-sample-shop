@@ -14,7 +14,7 @@ import { addPizzaToCart } from '../redux/actions/cart';
 function Home() {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
-  const cartItems = useSelector(({ cart }) => cart.items);
+  const pizzaOrderCounter = useSelector(({ cart }) => cart.pizzaOrderCounter)
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters)
   React.useEffect(() => {
@@ -60,13 +60,12 @@ function Home() {
       <div className="content__items">
         {isLoaded ?
           items.map((obj) => {
-
             return (
               <PizzaBlock
                 onClickAddPizza={handleAddPizzaToCart}
                 isLoading={true}
                 key={obj.id}
-                addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
+                addedCount={pizzaOrderCounter[obj.id]}
                 {...obj} />)
           })
 
