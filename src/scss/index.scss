@@ -37,7 +37,7 @@ body {
   &__items {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr 1fr;
     grid-gap: 3vw;
 
     @media (max-width: 1380px) {
