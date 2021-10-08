@@ -1,11 +1,12 @@
 @import '../variables';
 
 .header {
-  border-bottom: 1px solid $gray-line;
-  padding: 40px 0;
+  
 
   .container {
     display: flex;
+    border-bottom: 1px solid $gray-line;
+    padding: 40px 0;
     align-items: center;
     justify-content: space-between;
     @media (max-width: 768px) {
@@ -21,21 +22,25 @@
 
   &__logo {
     display: flex;
+    align-items: center;
 
     img {
       margin-right: 15px;
+      width: 54px;
     }
 
     h1 {
-      color: #181818;
+      font-family: 'Fivo Sans Modern';
+      color: #151515;
       font-size: 24px;
-      letter-spacing: 1%;
       text-transform: uppercase;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     p {
-      color: #7b7b7b;
+      color: $gray;
+      font-weight: 400;
+      font-size: 16px;
     }
   }
 }
