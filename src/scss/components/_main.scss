@@ -1,16 +1,15 @@
 @import '../variables';
 
 body {
-  background-color: $background;
+  background-color: $light-gray;
   padding: 50px 0;
 }
 
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
-  background-color: #fff;
+  background-color: $white;
   margin: 0 auto;
-  border-radius: 10px;
   max-width: 1400px;
 }
 
@@ -18,6 +17,8 @@ body {
   padding: 40px 0;
 
   &__title {
+    font-size: 46px;
+    line-height: 56px;
     margin: 35px 0;
   }
 
@@ -30,6 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 73px;
   }
 }
 
@@ -42,8 +44,9 @@ body {
   margin: 0 auto;
 
   &--cart {
-    max-width: 820px;
-    margin: 90px auto;
+  
+   width: 90%;
+   margin: 0 auto;
     .content__title {
       margin: 0;
     }
