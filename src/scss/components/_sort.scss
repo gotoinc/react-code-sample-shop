@@ -17,41 +17,63 @@
     }
 
     b {
-      margin-right: 8px;
+      margin-right: 16px;
+      color: $gray;
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 400;
     }
 
     span {
-      color: $orange;
-      border-bottom: 1px dashed $orange;
+      color: $black;
+      font-weight: 700;
+      font-size: 16px;
       cursor: pointer;
+      padding: 18px;
+      background-color: $light-gray;
+      border-radius: 14px;
+
+      svg {
+        transform: rotate(360deg);
+        margin-left: 30px;
+      }
     }
   }
 
   &__popup {
     position: absolute;
     right: 0;
-    margin-top: 15px;
-    background: #ffffff;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
-    border-radius: 10px;
+    margin-top: 10px;
+    background: $white;
+    border-radius: 14px;
     overflow: hidden;
-    padding: 10px 0;
-    width: 160px;
+    width: 190px;
+    filter: drop-shadow(2px 14px 34px rgba(41, 63, 141, 0.08));
 
     ul {
       overflow: hidden;
-      li {
-        padding: 12px 20px;
-        cursor: pointer;
 
-        &.active,
+      :first-child {
+          border-radius: 14px 14px 0 0;
+        }
+
+      li {
+        padding: 12px 17px;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 26px;
+        transition: all 0.2s ease-in;
+      
         &:hover {
-          background: rgba(254, 95, 30, 0.05);
+          background-color: $light-gray;
+          font-weight: 700;
+          color: $black;
         }
 
         &.active {
-          font-weight: bold;
-          color: $orange;
+          background-color: $light-gray;
+          font-weight: 700;
+          color: $black;
         }
       }
     }

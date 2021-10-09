@@ -26,21 +26,12 @@ const SortPopup = React.memo(function SortPopup({ items, onClickSortType, active
   return (
     <div ref={sortRef} className="sort">
       <div className="sort__label">
-        <svg
-          width="10"
-          height="6"
-          viewBox="0 0 10 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className={visiblePopup ? 'rotated' : ''}
-        >
-          <path
-            d="M10 5C10 5.16927 9.93815 5.31576 9.81445 5.43945C9.69075 5.56315 9.54427 5.625 9.375 5.625H0.625C0.455729 5.625 0.309245 5.56315 0.185547 5.43945C0.061849 5.31576 0 5.16927 0 5C0 4.83073 0.061849 4.68424 0.185547 4.56055L4.56055 0.185547C4.68424 0.061849 4.83073 0 5 0C5.16927 0 5.31576 0.061849 5.43945 0.185547L9.81445 4.56055C9.93815 4.68424 10 4.83073 10 5Z"
-            fill="#2C2C2C"
-          />
-        </svg>
-        <b>Сортировка по:</b>
-        <span onClick={toggleVidiblePopup}>{activeLabel}</span>
+        <b>Сортировка:</b>
+        <span onClick={toggleVidiblePopup}>{activeLabel} 
+         <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.41 0.200195L6 4.78019L10.59 0.200195L12 1.6102L6 7.61019L-6.16331e-08 1.61019L1.41 0.200195Z" fill="#151515"/>
+          </svg>
+        </span>
       </div>
       {visiblePopup && (
         <div className="sort__popup">
@@ -55,6 +46,7 @@ const SortPopup = React.memo(function SortPopup({ items, onClickSortType, active
               </li>
             ))}
           </ul>
+
         </div>
       )}
     </div>

@@ -81,7 +81,7 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
             />
           </svg>
           <span>Добавить</span>
-          <i>{addedCount}</i>
+          <i>{`(${addedCount})`}</i>
         </Button>
       </div>
     </div>
