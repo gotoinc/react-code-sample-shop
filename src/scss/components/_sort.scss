@@ -3,17 +3,19 @@
 .sort {
   margin-left: 20px;
   position: relative;
+
+  @media (max-width: $mobile) {
+    margin-left: 0;
+    width: 100%;
+  }
+
   &__label {
     display: flex;
     align-items: center;
-
-    svg {
-      margin-right: 8px;
-      transform: rotate(180deg);
-
-      &.rotated {
-        transform: rotate(0);
-      }
+    
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     b {
@@ -22,6 +24,10 @@
       font-size: 16px;
       line-height: 26px;
       font-weight: 400;
+
+      @media (max-width: $mobile) {
+        margin-right: 0;
+      }
     }
 
     span {
@@ -32,10 +38,19 @@
       padding: 18px;
       background-color: $light-gray;
       border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: $mobile) {
+        width: 100%;
+        padding: 14px;
+      }
 
       svg {
         transform: rotate(360deg);
         margin-left: 30px;
+        margin-right: 8px;
+        transform: translate(50%, 50%);
       }
     }
   }
@@ -47,8 +62,12 @@
     background: $white;
     border-radius: 14px;
     overflow: hidden;
-    width: 190px;
+    width: 195px;
     filter: drop-shadow(2px 14px 34px rgba(41, 63, 141, 0.08));
+
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
 
     ul {
       overflow: hidden;

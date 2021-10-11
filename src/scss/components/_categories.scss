@@ -2,17 +2,16 @@
 
 .categories {
   flex: 1;
-  max-width: 80%;
   overflow: auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1500px) {
     max-width: 100%;
     margin-bottom: 30px;
   }
 
   ul {
     display: flex;
-
+   
     li {
       background-color: $light-gray;
       padding: 16px 28px;
@@ -25,11 +24,6 @@
 
       &:hover {
         background-color: darken($light-gray, 6%);
-      }
-
-      &:active {
-        background-color: darken(#f9f9f9, 10%);
-        font-weight: 700;
       }
 
       &.active {
