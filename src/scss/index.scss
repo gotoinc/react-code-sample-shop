@@ -59,7 +59,7 @@ body {
     }
 
     @media (max-width: $large-tablet) {
-      grid-gap: 10px;
+      column-gap: 10px;
     }
 
     @media (max-width: $small-tablet) {
