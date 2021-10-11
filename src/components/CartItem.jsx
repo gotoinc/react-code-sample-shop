@@ -29,6 +29,7 @@ function CartItem({ pizzaKey, id, name, type, size, totalPrice, totalCount, onRe
             <h3>{name}</h3>
             <p>{type} тесто, {size} см.</p>
          </div>
+         
          <div className="cart__item-count">
             <Buttom onClick={handleMinusClick} outline className="button--circle cart__item-count-minus">
                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">

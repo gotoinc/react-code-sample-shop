@@ -8,14 +8,13 @@
     padding: 40px 0;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 768px) {
-      flex-direction: column;
+    
+    @media (max-width: $large-mobile) {
+      border-bottom: none;
     }
-  }
 
-  @media (max-width: 768px) {
-    &__cart {
-      margin-top: 30px;
+    @media (max-width: $mobile) {
+      padding: 28px 0;
     }
   }
 
@@ -26,6 +25,11 @@
     img {
       margin-right: 15px;
       width: 54px;
+
+      @media (max-width: $mobile) {
+        width: 46px;
+        margin-right: 12px;
+      }
     }
 
     h1 {
@@ -35,12 +39,24 @@
       line-height: 32px;
       text-transform: uppercase;
       font-weight: 700;
+
+      @media (max-width: $mobile) {
+        font-size: 16px;
+        line-height: 26px;
+      }
     }
 
     p {
       color: $gray;
       font-weight: 400;
       font-size: 16px;
+
+      @media (max-width: $large-mobile) {
+        font-size: 12px;
+        line-height: 15px;
+        width: 95%;
+      }
+      
     }
   }
 }
