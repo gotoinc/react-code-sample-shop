@@ -131,7 +131,7 @@ const cart = (state = initialState, action) => {
       }
 
       case 'CLEAR_CART':
-         return { totalPrice: 0, totalCount: 0, items: {} };
+         return { totalPrice: 0, totalCount: 0, items: {}, pizzaOrderCounter: {} };
 
       default:
          return state;
