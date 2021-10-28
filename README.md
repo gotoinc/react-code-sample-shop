@@ -2,7 +2,7 @@
 
 You will need to have npm and node installed and setup on your machine to run the application.
 
-### Project set up description
+# Project set up description
 
 1. `git clone https://github.com/gotoinc/react-code-sample-shop.git`
 
@@ -52,7 +52,7 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 
-### Technologys
+# Technologys
 
  - ReactJs + hook
  - React Router
@@ -61,7 +61,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
  - json-server
  - Axios
 
-### Project structure
+# Project structure
 
 react-code-sample-shop/
    yarn.lock
@@ -95,21 +95,21 @@ Basic files inside a folder:
 
 Folders inside the src:
 
-# `scss/` 
+### `scss/` 
  Contains all styles of the application. Contains a separate file for fonts, colors, root style file. And folders with styles for individual parts of the application
 
-# `redux/`
+### `redux/`
 Сontains store.js - storage configuration file and two folders.
 actions - folder with all action files. 
 reducers - folder with all reducers files. The main file in the folder is index.js. All reducers are combined in index.js file
 
-# `pages/`
+### `pages/`
 contains files of all pages of the application
 
-# `components/`
+### `components/`
 contains files of all components of the application
 
-# `assets/`
+### `assets/`
 contains two folders
 fonts - contains font files
 img - contains all images that are used in the project
