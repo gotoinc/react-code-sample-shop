@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
@@ -7,11 +7,16 @@ import CartItem from '../components/CartItem';
 import Button from '../components/Button';
 
 import cartEmptyImage from '../assets/img/empty-cart.png'
-import Prompt from '../components/Prompt';
+import Confirm from '../components/Confirm';
 
 function Cart() {
 
   const dispatch = useDispatch()
+
+  const [confirm, setConfirm] = useState({
+    question: null,
+    afterAction: null
+  })
 
   const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart)
   const addedPizzas = Object.keys(items).map(key => {
@@ -19,16 +24,32 @@ function Cart() {
   })
 
   const onClearCart = () => {
-    if (window.confirm("Вы действительно хотите очистить корзину?")) {
-      dispatch(clearCart())
-    }
+    setConfirm({
+      question: "Вы действительно хотите очистить корзину?",
+      afterAction: clearCart
+    })
   };
 
   const onRemoveItem = (id) => {
-    if (window.confirm("Вы действительно хотите удалить?")) {
-      dispatch(removeCartItem(id))
-    }
+    setConfirm({
+      question: "Вы действительно хотите удалить?",
+      afterAction: () => removeCartItem(id)
+    })
   };
+
+  const onConfirmClick = (result) => {
+    setConfirm(prevState => ({
+      ...prevState,
+      question: null
+    }))
+    if (result) {
+      dispatch(confirm.afterAction())
+    }
+    setConfirm(prevState => ({
+      ...prevState,
+      afterAction: null
+    }))
+  }
 
   const onPlusItem = (id) => {
     dispatch(plusCartItem(id))
@@ -113,6 +134,10 @@ function Cart() {
               </div>
             )}
       </div>
+      {
+        confirm.question &&
+        <Confirm question={confirm.question} onConfirmClick={onConfirmClick} />
+      }
     </div>
   )
 }
