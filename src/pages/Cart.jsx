@@ -45,10 +45,6 @@ function Cart() {
     if (result) {
       dispatch(confirm.afterAction())
     }
-    setConfirm(prevState => ({
-      ...prevState,
-      afterAction: null
-    }))
   }
 
   const onPlusItem = (id) => {
