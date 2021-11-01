@@ -3,10 +3,16 @@
 .sort {
   margin-left: 20px;
   position: relative;
+  padding-top: 160px;
 
   @media (max-width: $mobile) {
     margin-left: 0;
     width: 100%;
+  }
+
+  @media (max-width: 1500px) {
+    margin-left: 0;
+    padding-top: 0;
   }
 
   &__label {

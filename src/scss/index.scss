@@ -5,7 +5,6 @@
 
 body {
   background-color: $white;
-  padding: 50px 0;
 
   @media (max-width: $desktop) {
     padding: 0;
@@ -25,10 +24,9 @@ body {
 }
 
 .content {
-  padding: 40px 0;
 
   @media (max-width: $mobile) {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   &__title {
@@ -108,6 +106,11 @@ body {
 .cart {
   margin: 0 auto;
   width: 85%;
+  padding-top: 160px;
+
+  @media (max-width: $mobile) {
+    padding-top: 100px;
+  }
 
   &__top {
     display: flex;
@@ -432,7 +435,7 @@ body {
   }
 
   &--empty {
-    margin: 50px auto 200px;
+    margin: 0 auto 200px;
     text-align: center;
 
     @media (max-width: $large-mobile) {
