@@ -68,7 +68,6 @@ function Home() {
                 addedCount={pizzaOrderCounter[obj.id]}
                 {...obj} />)
           })
-
           :
           Array(12).fill(0).map((_, index) => <LoadingBlock key={index} />)
         }
