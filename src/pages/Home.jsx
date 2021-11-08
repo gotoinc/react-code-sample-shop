@@ -56,7 +56,7 @@ function Home() {
         <Categories activeCategory={category} items={categoryNames} onClickCategory={onSelectCategory} />
         <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
         {isLoaded ?
           items.map((obj) => {

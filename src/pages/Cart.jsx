@@ -68,12 +68,12 @@ function Cart() {
               <div className="cart">
                 <div className="cart__top">
                   <h2 className="content__title">
-                    Корзина</h2>
+                    Cart</h2>
                   <div className="cart__clear">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" clipRule="evenodd" d="M13.7787 2.46466L12.1624 0.848417L7.31372 5.69711L2.46502 0.848417L0.84878 2.46466L5.69747 7.31336L0.848711 12.1621L2.46495 13.7784L7.31372 8.92961L12.1625 13.7784L13.7787 12.1621L8.92996 7.31336L13.7787 2.46466Z" fill="#8B949D" />
                     </svg>
-                    <span onClick={onClearCart}>Очистить корзину</span>
+                    <span onClick={onClearCart}>Remove all</span>
                   </div>
                 </div>
                 <div className="content__items">
@@ -99,8 +99,8 @@ function Cart() {
                 </div>
                 <div className="cart__bottom">
                   <div className="cart__bottom-details">
-                    <span> Всего: <b>{totalCount} шт.</b> </span>
-                    <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
+                    <span> Total: <b>{totalCount} pcs </b> </span>
+                    <span> Amount: <b>{totalPrice} $</b> </span>
                   </div>
                   <div className="cart__bottom-buttons">
                     <Link to="/" className="button button--outline button--add go-back-btn">
@@ -109,10 +109,10 @@ function Cart() {
                       </svg >
 
 
-                      <span>Назад</span>
+                      <span>Back</span>
                     </Link >
                     <Button onClick={onOrderBy} className="pay-btn">
-                      <span>Оплатить</span>
+                      <span>Pay</span>
                     </Button>
                   </div >
                 </div >
@@ -120,12 +120,12 @@ function Cart() {
             ) :
             (
               <div className="cart cart--empty">
-                <h2>Корзина пустая <i>😢</i></h2>
-                <p>Вероятней всего, вы не заказывали ещё пиццу.<br />
-                  Для того, чтобы заказать пиццу, перейди на главную страницу.</p>
+                <h2>The cart is empty <i>😢</i></h2>
+                <p>You haven't ordered pizza yet.
+                  Go to the main page to order pizza.</p>
                 <img src={cartEmptyImage} alt="Empty cart" />
                 <Link to="/" className="button button--black">
-                  <span>Назад</span>
+                  <span>Back</span>
                 </Link>
               </div>
             )
