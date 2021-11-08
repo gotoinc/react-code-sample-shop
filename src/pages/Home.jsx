@@ -1,16 +1,17 @@
 import React from 'react';
-
+import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
+
 import {
   Categories,
   SortPopup,
   PizzaBlock,
   LoadingBlock
 } from '../components';
+
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { addPizzaToCart } from '../redux/actions/cart';
-import { Helmet } from 'react-helmet';
 
 function Home() {
   const dispatch = useDispatch();
