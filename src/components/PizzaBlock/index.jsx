@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
 import Button from '../Button';
 
 function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount }) {
 
-  const typeNames = ['тонкое', 'традиционное'];
+  const typeNames = ['thin', 'classic'];
   const avaliableSizes = [26, 30, 40];
 
   const [activeType, setActiveType] = React.useState(types[0]);
@@ -60,13 +61,13 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
               })}
               onClick={() => onSelectSize(index)}
             >
-              {size} см.
+              {size} cm
             </li>
           ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} ₽</div>
+        <div className="pizza-block__price">from {price} $</div>
         <Button onClick={onAddPizza} className="button--add" outline>
           <svg
             width="12"
@@ -80,7 +81,7 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Add</span>
           <i>{`(${addedCount})`}</i>
         </Button>
       </div>

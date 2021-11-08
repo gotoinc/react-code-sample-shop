@@ -1,12 +1,14 @@
 import React from 'react';
-
+import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
+
 import {
   Categories,
   SortPopup,
   PizzaBlock,
   LoadingBlock
 } from '../components';
+
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { addPizzaToCart } from '../redux/actions/cart';
@@ -21,16 +23,16 @@ function Home() {
     dispatch(fetchPizzas(sortBy, category));
   }, [category, sortBy]);
   const categoryNames = [
-    'Мясные',
-    'Вегетарианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
+    'Meat',
+    'Vegetarian',
+    'Grill',
+    'Spicy',
+    'Stuffed',
   ];
   const sortItems = [
-    { name: 'Популярности', type: 'popylar', order: 'desc' },
-    { name: 'Цена', type: 'price', order: 'desc' },
-    { name: 'Алфавит', type: 'name', order: 'asc' },
+    { name: 'Popularity', type: 'popylar', order: 'desc' },
+    { name: 'Price', type: 'price', order: 'desc' },
+    { name: 'Alphabetically', type: 'name', order: 'asc' },
   ];
 
   const onSelectCategory = React.useCallback(
@@ -52,11 +54,14 @@ function Home() {
   };
   return (
     <div className="container">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className="content__top">
         <Categories activeCategory={category} items={categoryNames} onClickCategory={onSelectCategory} />
         <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
         {isLoaded ?
           items.map((obj) => {
@@ -68,7 +73,6 @@ function Home() {
                 addedCount={pizzaOrderCounter[obj.id]}
                 {...obj} />)
           })
-
           :
           Array(12).fill(0).map((_, index) => <LoadingBlock key={index} />)
         }

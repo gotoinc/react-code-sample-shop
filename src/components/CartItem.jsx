@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Buttom from '../components/Button'
 
 function CartItem({ pizzaKey, id, name, type, size, totalPrice, totalCount, onRemove, onMinus, onPlus }) {
@@ -27,7 +28,7 @@ function CartItem({ pizzaKey, id, name, type, size, totalPrice, totalCount, onRe
          </div>
          <div className="cart__item-info">
             <h3>{name}</h3>
-            <p>{type} тесто, {size} см.</p>
+            <p>{type} dough, {size} cm</p>
          </div>
 
          <div className="cart__item-count">
@@ -48,14 +49,13 @@ function CartItem({ pizzaKey, id, name, type, size, totalPrice, totalCount, onRe
             </Buttom>
          </div>
          <div className="cart__item-price">
-            <b>{totalPrice} ₽</b>
+            <b>{totalPrice} $</b>
          </div>
          <div className="cart__item-remove">
             <Buttom onClick={handleRemoveClick} outline className="button--circle">
                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M13.7787 2.46466L12.1624 0.848417L7.31372 5.69711L2.46502 0.848417L0.84878 2.46466L5.69747 7.31336L0.848711 12.1621L2.46495 13.7784L7.31372 8.92961L12.1625 13.7784L13.7787 12.1621L8.92996 7.31336L13.7787 2.46466Z" fill="#8B949D" />
                </svg>
-
 
             </Buttom>
          </div>
