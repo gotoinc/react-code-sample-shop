@@ -25,14 +25,14 @@ function Cart() {
 
   const onClearCart = () => {
     setConfirm({
-      question: "Вы действительно хотите очистить корзину?",
+      question: "Do you really want to delete all?",
       afterAction: clearCart
     })
   };
 
   const onRemoveItem = (id) => {
     setConfirm({
-      question: "Вы действительно хотите удалить?",
+      question: "Do you really want to delete ?",
       afterAction: () => removeCartItem(id)
     })
   };
