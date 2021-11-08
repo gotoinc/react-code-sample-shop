@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet';
 
-import { clearCart, minusCartItem, plusCartItem, removeCartItem } from '../redux/actions/cart';
 import CartItem from '../components/CartItem';
 import Button from '../components/Button';
+import Confirm from '../components/Confirm';
 
 import cartEmptyImage from '../assets/img/empty-cart.png'
-import Confirm from '../components/Confirm';
-import { Helmet } from 'react-helmet';
+import { clearCart, minusCartItem, plusCartItem, removeCartItem } from '../redux/actions/cart';
 
 function Cart() {
 

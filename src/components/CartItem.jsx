@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Buttom from '../components/Button'
 
 function CartItem({ pizzaKey, id, name, type, size, totalPrice, totalCount, onRemove, onMinus, onPlus }) {
