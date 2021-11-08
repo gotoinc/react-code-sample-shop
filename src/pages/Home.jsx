@@ -21,16 +21,16 @@ function Home() {
     dispatch(fetchPizzas(sortBy, category));
   }, [category, sortBy]);
   const categoryNames = [
-    'Мясные',
-    'Вегетарианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
+    'Meat',
+    'Vegetarian',
+    'Grill',
+    'Spicy',
+    'Stuffed',
   ];
   const sortItems = [
-    { name: 'Популярности', type: 'popylar', order: 'desc' },
-    { name: 'Цена', type: 'price', order: 'desc' },
-    { name: 'Алфавит', type: 'name', order: 'asc' },
+    { name: 'Popularity', type: 'popylar', order: 'desc' },
+    { name: 'Price', type: 'price', order: 'desc' },
+    { name: 'Alphabetically', type: 'name', order: 'asc' },
   ];
 
   const onSelectCategory = React.useCallback(
