@@ -4,17 +4,16 @@
   position: fixed;
   background-color: $white;
   width: 100%;
-  z-index: 200;
+  z-index: 5;
   max-width: 1500px;
-  
+
   .container {
     display: flex;
     border-bottom: 1px solid $light-gray;
     padding: 40px 0;
     align-items: center;
     justify-content: space-between;
-   
-    
+
     @media (max-width: $large-mobile) {
       border-bottom: none;
     }
@@ -62,7 +61,6 @@
         line-height: 15px;
         width: 95%;
       }
-      
     }
   }
 }

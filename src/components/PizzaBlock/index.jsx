@@ -5,7 +5,7 @@ import Button from '../Button';
 
 function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount }) {
 
-  const typeNames = ['тонкое', 'традиционное'];
+  const typeNames = ['thin', 'classic'];
   const avaliableSizes = [26, 30, 40];
 
   const [activeType, setActiveType] = React.useState(types[0]);
@@ -60,7 +60,7 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
               })}
               onClick={() => onSelectSize(index)}
             >
-              {size} см.
+              {size} cm
             </li>
           ))}
         </ul>
@@ -80,7 +80,7 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Add</span>
           <i>{`(${addedCount})`}</i>
         </Button>
       </div>

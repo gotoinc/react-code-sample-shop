@@ -15,14 +15,14 @@ function Header(props) {
             <img width="38" src={logoSvg} alt="Pizza logo" />
             <div>
               <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <p>the most delicious pizza in the world</p>
             </div>
           </div>
         </Link>
         <div className="header__cart">
           <Link to="/cart">
             <Button className="button--cart">
-              <span>{totalPrice}&nbsp;₽</span>
+              <span>{totalPrice}&nbsp;$</span>
               <div className="button__delimiter"></div>
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.33333 16.3332C7.06971 16.3332 7.66667 15.7362 7.66667 14.9998C7.66667 14.2635 7.06971 13.6665 6.33333 13.6665C5.59695 13.6665 5 14.2635 5 14.9998C5 15.7362 5.59695 16.3332 6.33333 16.3332Z" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
