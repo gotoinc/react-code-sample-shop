@@ -107,8 +107,6 @@ function Cart() {
                       <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 10.9288L1 6.23187L5.88479 1.64307" stroke="#151515" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg >
-
-
                       <span>Back</span>
                     </Link >
                     <Button onClick={onOrderBy} className="pay-btn">
