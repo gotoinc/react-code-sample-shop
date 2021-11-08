@@ -6,8 +6,8 @@ function Confirm({ question, onConfirmClick }) {
          <div className="confirm__wrapper">
             <h2 className="confirm__title">{question}</h2>
             <div className="confirm__buttons">
-               <button onClick={() => onConfirmClick(false)} type="button" className="confirm__btn confirm__btn_cancel">Отменить</button>
-               <button onClick={() => onConfirmClick(true)} type="button" className="confirm__btn confirm__btn_okay">Да</button>
+               <button onClick={() => onConfirmClick(false)} type="button" className="confirm__btn confirm__btn_cancel">Cancel</button>
+               <button onClick={() => onConfirmClick(true)} type="button" className="confirm__btn confirm__btn_okay">Yes</button>
             </div>
          </div>
       </div>
