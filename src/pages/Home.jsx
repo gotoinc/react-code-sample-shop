@@ -10,6 +10,7 @@ import {
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { addPizzaToCart } from '../redux/actions/cart';
+import { Helmet } from 'react-helmet';
 
 function Home() {
   const dispatch = useDispatch();
@@ -52,6 +53,9 @@ function Home() {
   };
   return (
     <div className="container">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className="content__top">
         <Categories activeCategory={category} items={categoryNames} onClickCategory={onSelectCategory} />
         <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />

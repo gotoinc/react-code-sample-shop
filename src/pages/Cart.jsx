@@ -8,6 +8,7 @@ import Button from '../components/Button';
 
 import cartEmptyImage from '../assets/img/empty-cart.png'
 import Confirm from '../components/Confirm';
+import { Helmet } from 'react-helmet';
 
 function Cart() {
 
@@ -61,6 +62,9 @@ function Cart() {
 
   return (
     <div className="content">
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       <div className="container container--cart">
         {
           totalCount ?
