@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Confirm from '../components/Confirm';
-import { act } from 'react-dom/test-utils';
 
 const title = 'Hello World!';
 
