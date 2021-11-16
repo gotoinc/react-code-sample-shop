@@ -10,14 +10,10 @@ describe('CartItem', () => {
   });
 
   it('should remove item on click', async () => {
-    const obj = jest.fn(() => {
-      jest.fn().mockReturnValue({ id: 1, key: 1, removedPizzaAmount: 0 });
-    });
-    const res = obj();
-    console.log(res);
-    const { getAllByRole } = render(<CartItem />);
+    const myMock = jest.fn()
+    const { getAllByRole } = render(<CartItem onRemove={myMock}/>);
     const button = getAllByRole('button')[2];
     await fireEvent.click(button);
-    expect(res).toBe(undefined);
+    expect(myMock).toHaveBeenCalled();
   });
 });
