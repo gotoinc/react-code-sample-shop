@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import CartItem from './../components/CartItem';
 
 describe('CartItem', () => {
@@ -9,11 +9,27 @@ describe('CartItem', () => {
     expect(getByText(/cm/)).toBeInTheDocument();
   });
 
-  it('should remove item on click', async () => {
-    const myMock = jest.fn()
-    const { getAllByRole } = render(<CartItem onRemove={myMock}/>);
-    const button = getAllByRole('button')[2];
-    await fireEvent.click(button);
-    expect(myMock).toHaveBeenCalled();
+  it('should remove item on click', () => {
+    const mockRemoveAction = jest.fn();
+    render(<CartItem onRemove={mockRemoveAction} />);
+    const button = screen.getByTestId('button-remove');
+    fireEvent.click(button);
+    expect(mockRemoveAction).toHaveBeenCalled();
+  });
+
+  it('should increment on click', () => {
+    const mockIncrementAction = jest.fn();
+    render(<CartItem onPlus={mockIncrementAction} />);
+    const button = screen.getByTestId('button-plus');
+    fireEvent.click(button);
+    expect(mockIncrementAction).toHaveBeenCalled();
+  });
+
+  it('should decrement on click', () => {
+    const mockDecrementAction = jest.fn();
+    render(<CartItem onMinus={mockDecrementAction} />);
+    const button = screen.getByTestId('button-minus');
+    fireEvent.click(button);
+    expect(mockDecrementAction).toHaveBeenCalled();
   });
 });
