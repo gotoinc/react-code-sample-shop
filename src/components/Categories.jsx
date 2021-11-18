@@ -6,6 +6,7 @@ const Categories = React.memo(function Categories({ activeCategory, items, onCli
     <div className="categories">
       <ul>
         <li
+          data-testid="all-categories"
           className={activeCategory === null ? 'active' : ''}
           onClick={() => onClickCategory(null)}
         >
@@ -13,6 +14,7 @@ const Categories = React.memo(function Categories({ activeCategory, items, onCli
         </li>
         {items.map((name, index) => (
           <li
+            data-testid="item-category"
             key={`${name}_${index}`}
             className={activeCategory === index ? 'active' : ''}
             onClick={() => onClickCategory(index)}
