@@ -7,5 +7,5 @@ export const setCategory = (index) => {
   return {
     type: 'SET_CATEGORY',
     payload: index,
-  }
+  };
 };

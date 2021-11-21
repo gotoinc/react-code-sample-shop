@@ -9,9 +9,7 @@ import {
   LoadingBlock
 } from '../components';
 
-import { setCategory, setSortBy } from '../redux/actions/filters';
-import { fetchPizzas } from '../redux/actions/pizzas';
-import { addPizzaToCart } from '../redux/actions/cart';
+import { setCategory, setSortBy, fetchPizzas, addPizzaToCart } from '../redux/actions';
 import { cartSelector, filtersSelector, pizzasSelector } from '../redux/selectors';
 
 function Home() {
