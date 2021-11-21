@@ -8,7 +8,7 @@ import Button from '../components/Button';
 import Confirm from '../components/Confirm';
 
 import cartEmptyImage from '../assets/img/empty-cart.png'
-import { clearCart, minusCartItem, plusCartItem, removeCartItem } from '../redux/actions/cart';
+import { clearCart, minusCartItem, plusCartItem, removeCartItem } from '../redux/actions';
 import { cartSelector } from '../redux/selectors';
 
 function Cart() {
