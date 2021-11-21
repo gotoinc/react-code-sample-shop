@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,16 +12,18 @@ import {
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 import { addPizzaToCart } from '../redux/actions/cart';
+import { cartSelector, filtersSelector, pizzasSelector } from '../redux/selectors';
 
 function Home() {
   const dispatch = useDispatch();
-  const items = useSelector(({ pizzas }) => pizzas.items);
-  const pizzaOrderCounter = useSelector(({ cart }) => cart.pizzaOrderCounter)
-  const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
-  const { category, sortBy } = useSelector(({ filters }) => filters)
-  React.useEffect(() => {
+  const { items } = useSelector(pizzasSelector);
+  const { pizzaOrderCounter } = useSelector(cartSelector);
+  const { isLoaded } = useSelector(pizzasSelector);
+  const { category, sortBy } = useSelector(filtersSelector);
+
+  useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
-  }, [category, sortBy]);
+  }, [category, dispatch, sortBy]);
   const categoryNames = [
     'Meat',
     'Vegetarian',

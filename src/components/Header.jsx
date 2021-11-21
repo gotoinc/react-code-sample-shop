@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import Button from './Button';
 
 import logoSvg from '../assets/img/pizza-logo.svg';
+import { cartSelector } from '../redux/selectors';
 
 function Header(props) {
-  const { totalPrice, totalCount } = useSelector(({ cart }) => cart)
+  const { totalPrice, totalCount } = useSelector(cartSelector)
 
   return (
     <div className="header">
