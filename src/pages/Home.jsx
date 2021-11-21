@@ -18,14 +18,14 @@ import {
 
 function Home() {
   const dispatch = useDispatch();
-  const { items } = useSelector(pizzasSelector);
+  const { items, isLoaded } = useSelector(pizzasSelector);
   const { pizzaOrderCounter } = useSelector(cartSelector);
-  const { isLoaded } = useSelector(pizzasSelector);
   const { category, sortBy } = useSelector(filtersSelector);
 
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
   }, [category, dispatch, sortBy]);
+
   const categoryNames = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Stuffed'];
   const sortItems = [
     { name: 'Popularity', type: 'popylar', order: 'desc' },

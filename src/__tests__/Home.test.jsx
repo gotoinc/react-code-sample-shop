@@ -1,14 +1,21 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import Home from '../pages/Home';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
+
 import { createStore } from 'redux';
 import rootReducer from '../redux/reducers/index';
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { setCategory } from '../redux/actions';
 
 const renderWithRedux = (
   component,
-  { initialState, store = createStore(rootReducer, initialState) } = {},
+  {
+    initialState,
+    store = createStore(rootReducer, initialState, applyMiddleware(thunk)),
+  } = {},
 ) => {
   return {
     ...render(<Provider store={store}>{component}</Provider>),
@@ -16,15 +23,18 @@ const renderWithRedux = (
   };
 };
 
-const mockDispatch = jest.fn();
+const mockedDispatch = jest.fn();
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
-  useDispatch: mockDispatch,
+  useDispatch: () => mockedDispatch,
 }));
 
 describe('Home', () => {
-  it('renders Home with redux', () => {
+  it('renders Home page with redux', () => {
+    mockedDispatch(setCategory(1));
+
     renderWithRedux(<Home />);
-    expect(screen.getByText(/All pizzas/)).toBeInTheDocument();
+
+    expect(mockedDispatch).toHaveBeenCalledWith(setCategory(1));
   });
 });
