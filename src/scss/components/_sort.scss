@@ -18,7 +18,7 @@
   &__label {
     display: flex;
     align-items: center;
-    
+
     @media (max-width: $mobile) {
       flex-direction: column;
       align-items: flex-start;
@@ -79,8 +79,8 @@
       overflow: hidden;
 
       :first-child {
-          border-radius: 14px 14px 0 0;
-        }
+        border-radius: 14px 14px 0 0;
+      }
 
       li {
         padding: 12px 17px;
@@ -88,7 +88,7 @@
         font-size: 16px;
         line-height: 26px;
         transition: all 0.2s ease-in;
-      
+
         &:hover {
           background-color: $light-gray;
           font-weight: 700;
