@@ -9,9 +9,9 @@ import Confirm from '../components/Confirm';
 
 import cartEmptyImage from '../assets/img/empty-cart.png'
 import { clearCart, minusCartItem, plusCartItem, removeCartItem } from '../redux/actions/cart';
+import { cartSelector } from '../redux/selectors';
 
 function Cart() {
-
   const dispatch = useDispatch()
 
   const [confirm, setConfirm] = useState({
@@ -19,7 +19,7 @@ function Cart() {
     afterAction: null
   })
 
-  const { items, totalPrice, totalCount } = useSelector(({ cart }) => cart)
+  const { items, totalPrice, totalCount } = useSelector(cartSelector)
   const addedPizzas = Object.keys(items).map(key => {
     return items[key].items[0]
   })
