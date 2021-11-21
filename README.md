@@ -101,6 +101,7 @@ Folders inside the src:
 ### `redux/`
 Сontains store.js - storage configuration file and two folders.
 actions - folder with all action files. 
+selectors - folder with all selector files.
 reducers - folder with all reducers files. The main file in the folder is index.js. All reducers are combined in index.js file
 
 ### `pages/`

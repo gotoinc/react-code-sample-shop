@@ -5,7 +5,8 @@
   padding: 16px 34px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
 
@@ -48,7 +49,7 @@
     border-color: 1px solid $yellow;
     border-radius: 14px;
     font-size: 16px;
-    
+
     &,
     span {
       color: $black;
@@ -155,24 +156,23 @@
     }
 
     &:hover {
-     background-color: $white;
-     border: 1px solid $black;
+      background-color: $white;
+      border: 1px solid $black;
 
-     .button__delimiter {
-       background-color: $black;
-     }
+      .button__delimiter {
+        background-color: $black;
+      }
 
-     span {
-       color: $black;
-     }
+      span {
+        color: $black;
+      }
 
-     svg {
-       path {
-        background-color: $black; 
-        stroke: $black;
-       }
-     }
-
+      svg {
+        path {
+          background-color: $black;
+          stroke: $black;
+        }
+      }
     }
   }
 }

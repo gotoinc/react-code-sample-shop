@@ -4,8 +4,16 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 
-function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, addedCount }) {
-
+function PizzaBlock({
+  id,
+  imageUrl,
+  name,
+  price,
+  types,
+  sizes,
+  onClickAddPizza,
+  addedCount,
+}) {
   const typeNames = ['thin', 'classic'];
   const avaliableSizes = [26, 30, 40];
 
@@ -27,9 +35,9 @@ function PizzaBlock({ id, imageUrl, name, price, types, sizes, onClickAddPizza, 
       imageUrl,
       price,
       type: typeNames[activeType],
-      size: avaliableSizes[activeSize]
-    }
-    onClickAddPizza(obj)
+      size: avaliableSizes[activeSize],
+    };
+    onClickAddPizza(obj);
   };
 
   return (
@@ -94,7 +102,7 @@ PizzaBlock.propTypes = {
   price: PropTypes.number.isRequired,
   types: PropTypes.arrayOf(PropTypes.number).isRequired,
   sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
-  addedCount: PropTypes.number
+  addedCount: PropTypes.number,
 };
 PizzaBlock.defaultProps = {
   name: 'название пиццы',
@@ -103,7 +111,7 @@ PizzaBlock.defaultProps = {
   price: 0,
   types: [],
   sizes: [],
-  addedCount: 0
+  addedCount: 0,
 };
 
 export default PizzaBlock;

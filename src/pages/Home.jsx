@@ -1,34 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {
-  Categories,
-  SortPopup,
-  PizzaBlock,
-  LoadingBlock
-} from '../components';
+import { Categories, SortPopup, PizzaBlock, LoadingBlock } from '../components';
 
-import { setCategory, setSortBy } from '../redux/actions/filters';
-import { fetchPizzas } from '../redux/actions/pizzas';
-import { addPizzaToCart } from '../redux/actions/cart';
+import {
+  setCategory,
+  setSortBy,
+  fetchPizzas,
+  addPizzaToCart,
+} from '../redux/actions';
+import {
+  cartSelector,
+  filtersSelector,
+  pizzasSelector,
+} from '../redux/selectors';
 
 function Home() {
   const dispatch = useDispatch();
-  const items = useSelector(({ pizzas }) => pizzas.items);
-  const pizzaOrderCounter = useSelector(({ cart }) => cart.pizzaOrderCounter)
-  const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
-  const { category, sortBy } = useSelector(({ filters }) => filters)
-  React.useEffect(() => {
+  const { items } = useSelector(pizzasSelector);
+  const { pizzaOrderCounter } = useSelector(cartSelector);
+  const { isLoaded } = useSelector(pizzasSelector);
+  const { category, sortBy } = useSelector(filtersSelector);
+
+  useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
-  }, [category, sortBy]);
-  const categoryNames = [
-    'Meat',
-    'Vegetarian',
-    'Grill',
-    'Spicy',
-    'Stuffed',
-  ];
+  }, [category, dispatch, sortBy]);
+  const categoryNames = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Stuffed'];
   const sortItems = [
     { name: 'Popularity', type: 'popylar', order: 'desc' },
     { name: 'Price', type: 'price', order: 'desc' },
@@ -50,7 +48,7 @@ function Home() {
   );
 
   const handleAddPizzaToCart = (pizza) => {
-    dispatch(addPizzaToCart(pizza))
+    dispatch(addPizzaToCart(pizza));
   };
   return (
     <div className="container">
@@ -58,24 +56,34 @@ function Home() {
         <title>Home</title>
       </Helmet>
       <div className="content__top">
-        <Categories activeCategory={category} items={categoryNames} onClickCategory={onSelectCategory} />
-        <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
+        <Categories
+          activeCategory={category}
+          items={categoryNames}
+          onClickCategory={onSelectCategory}
+        />
+        <SortPopup
+          activeSortType={sortBy.type}
+          items={sortItems}
+          onClickSortType={onSelectSortType}
+        />
       </div>
       <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
-        {isLoaded ?
-          items.map((obj) => {
-            return (
-              <PizzaBlock
-                onClickAddPizza={handleAddPizzaToCart}
-                isLoading={true}
-                key={obj.id}
-                addedCount={pizzaOrderCounter[obj.id]}
-                {...obj} />)
-          })
-          :
-          Array(12).fill(0).map((_, index) => <LoadingBlock key={index} />)
-        }
+        {isLoaded
+          ? items.map((obj) => {
+              return (
+                <PizzaBlock
+                  onClickAddPizza={handleAddPizzaToCart}
+                  isLoading={true}
+                  key={obj.id}
+                  addedCount={pizzaOrderCounter[obj.id]}
+                  {...obj}
+                />
+              );
+            })
+          : Array(12)
+              .fill(0)
+              .map((_, index) => <LoadingBlock key={index} />)}
       </div>
     </div>
   );
