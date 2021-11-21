@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import CartItem from '../components/CartItem';
-import Button from '../components/Button';
-import Confirm from '../components/Confirm';
+import { CartItem, Button, Confirm } from '../components/index';
 
 import cartEmptyImage from '../assets/img/empty-cart.png';
 import {
@@ -114,12 +112,10 @@ function Cart() {
             <div className="cart__bottom">
               <div className="cart__bottom-details">
                 <span>
-                  {' '}
-                  Total: <b>{totalCount} pcs </b>{' '}
+                  Total: <b>{totalCount} pcs </b>
                 </span>
                 <span>
-                  {' '}
-                  Amount: <b>{totalPrice} $</b>{' '}
+                  Amount: <b>{totalPrice} $</b>
                 </span>
               </div>
               <div className="cart__bottom-buttons">
