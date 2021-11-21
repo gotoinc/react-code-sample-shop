@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -17,8 +17,8 @@ function PizzaBlock({
   const typeNames = ['thin', 'classic'];
   const avaliableSizes = [26, 30, 40];
 
-  const [activeType, setActiveType] = React.useState(types[0]);
-  const [activeSize, setActiveSize] = React.useState(0);
+  const [activeType, setActiveType] = useState(types[0]);
+  const [activeSize, setActiveSize] = useState(0);
 
   const onSelectType = (index) => {
     setActiveType(index);
@@ -54,6 +54,7 @@ function PizzaBlock({
                 disabled: !types.includes(index),
               })}
               onClick={() => onSelectType(index)}
+              data-testid="item-select-type"
             >
               {type}
             </li>
@@ -76,7 +77,12 @@ function PizzaBlock({
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">from {price} $</div>
-        <Button onClick={onAddPizza} className="button--add" outline>
+        <Button
+          onClick={onAddPizza}
+          dataTestId="add-pizza-button"
+          className="button--add"
+          outline
+        >
           <svg
             width="12"
             height="12"
