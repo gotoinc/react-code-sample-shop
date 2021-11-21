@@ -2,15 +2,19 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {
-  Categories,
-  SortPopup,
-  PizzaBlock,
-  LoadingBlock
-} from '../components';
+import { Categories, SortPopup, PizzaBlock, LoadingBlock } from '../components';
 
-import { setCategory, setSortBy, fetchPizzas, addPizzaToCart } from '../redux/actions';
-import { cartSelector, filtersSelector, pizzasSelector } from '../redux/selectors';
+import {
+  setCategory,
+  setSortBy,
+  fetchPizzas,
+  addPizzaToCart,
+} from '../redux/actions';
+import {
+  cartSelector,
+  filtersSelector,
+  pizzasSelector,
+} from '../redux/selectors';
 
 function Home() {
   const dispatch = useDispatch();
@@ -22,13 +26,7 @@ function Home() {
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
   }, [category, dispatch, sortBy]);
-  const categoryNames = [
-    'Meat',
-    'Vegetarian',
-    'Grill',
-    'Spicy',
-    'Stuffed',
-  ];
+  const categoryNames = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Stuffed'];
   const sortItems = [
     { name: 'Popularity', type: 'popylar', order: 'desc' },
     { name: 'Price', type: 'price', order: 'desc' },
@@ -50,7 +48,7 @@ function Home() {
   );
 
   const handleAddPizzaToCart = (pizza) => {
-    dispatch(addPizzaToCart(pizza))
+    dispatch(addPizzaToCart(pizza));
   };
   return (
     <div className="container">
@@ -58,24 +56,34 @@ function Home() {
         <title>Home</title>
       </Helmet>
       <div className="content__top">
-        <Categories activeCategory={category} items={categoryNames} onClickCategory={onSelectCategory} />
-        <SortPopup activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
+        <Categories
+          activeCategory={category}
+          items={categoryNames}
+          onClickCategory={onSelectCategory}
+        />
+        <SortPopup
+          activeSortType={sortBy.type}
+          items={sortItems}
+          onClickSortType={onSelectSortType}
+        />
       </div>
       <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
-        {isLoaded ?
-          items.map((obj) => {
-            return (
-              <PizzaBlock
-                onClickAddPizza={handleAddPizzaToCart}
-                isLoading={true}
-                key={obj.id}
-                addedCount={pizzaOrderCounter[obj.id]}
-                {...obj} />)
-          })
-          :
-          Array(12).fill(0).map((_, index) => <LoadingBlock key={index} />)
-        }
+        {isLoaded
+          ? items.map((obj) => {
+              return (
+                <PizzaBlock
+                  onClickAddPizza={handleAddPizzaToCart}
+                  isLoading={true}
+                  key={obj.id}
+                  addedCount={pizzaOrderCounter[obj.id]}
+                  {...obj}
+                />
+              );
+            })
+          : Array(12)
+              .fill(0)
+              .map((_, index) => <LoadingBlock key={index} />)}
       </div>
     </div>
   );
