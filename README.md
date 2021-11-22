@@ -77,11 +77,6 @@ react-code-sample-shop/
       db.json
       favicon.ico
       index.html
-      logo192.png
-      logo512.png
-      manifest.json
-      robots.txt
-      test.jsom
    src/
       
 ### `src/`
@@ -90,7 +85,6 @@ This is the root folder of the application. It contains many files and folders
 Basic files inside a folder:
 1. index.js - application root file
 2. App.js - file with routings. All pages of the application are connected to it
-3. App.test.js - we connect everything necessary for testing
 
 
 Folders inside the src:
@@ -114,3 +108,6 @@ contains files of all components of the application
 contains two folders
 fonts - contains font files
 img - contains all images that are used in the project
+
+### `__tests__/`
+contains files of all tests of the applications
