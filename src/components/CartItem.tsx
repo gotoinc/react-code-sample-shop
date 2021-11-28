@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import Button from '../components/Button';
+import Button from './Button';
 
-function CartItem({
+type Pizza = {
+  key: string;
+  id: number;
+  removedPizzaAmount?: number;
+};
+
+interface ICartItem {
+  id: number;
+  name: string;
+  type: string;
+  size: number;
+  totalPrice: number;
+  totalCount: number;
+  pizzaKey: string;
+  onRemove: (curPizza: Pizza) => void;
+  onMinus: (curPizza: Pizza) => void;
+  onPlus: (curPizza: Pizza) => void;
+}
+
+const CartItem: FC<ICartItem> = ({
   pizzaKey,
   id,
   name,
@@ -13,7 +32,7 @@ function CartItem({
   onRemove,
   onMinus,
   onPlus,
-}) {
+}) => {
   const handleRemoveClick = () => {
     onRemove({ key: pizzaKey, id, removedPizzaAmount: totalCount });
   };
@@ -120,6 +139,6 @@ function CartItem({
       </div>
     </div>
   );
-}
+};
 
 export default CartItem;

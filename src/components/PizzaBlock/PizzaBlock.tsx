@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 import Button from '../Button';
+import { IPizza, IPizzaModel } from '../../types/types';
 
-function PizzaBlock({
+
+export interface IPizzaBlock extends IPizza {
+  onClickAddPizza: (pizza: IPizzaModel) => void;
+  addedCount: () => void;
+  isLoading: boolean;
+}
+
+const PizzaBlock: FC<IPizzaBlock> = ({
   id,
   imageUrl,
   name,
@@ -13,23 +20,23 @@ function PizzaBlock({
   sizes,
   onClickAddPizza,
   addedCount,
-}) {
+}) => {
   const typeNames = ['thin', 'classic'];
   const avaliableSizes = [26, 30, 40];
 
-  const [activeType, setActiveType] = useState(types[0]);
-  const [activeSize, setActiveSize] = useState(0);
+  const [activeType, setActiveType] = useState<number>(types[0]);
+  const [activeSize, setActiveSize] = useState<number>(0);
 
-  const onSelectType = (index) => {
+  const onSelectType = (index: number) => {
     setActiveType(index);
   };
 
-  const onSelectSize = (index) => {
+  const onSelectSize = (index: number) => {
     setActiveSize(index);
   };
 
   const onAddPizza = () => {
-    const obj = {
+    const pizzaModel: IPizzaModel = {
       id,
       name,
       imageUrl,
@@ -37,7 +44,7 @@ function PizzaBlock({
       type: typeNames[activeType],
       size: avaliableSizes[activeSize],
     };
-    onClickAddPizza(obj);
+    onClickAddPizza(pizzaModel);
   };
 
   return (
@@ -101,23 +108,6 @@ function PizzaBlock({
       </div>
     </div>
   );
-}
-PizzaBlock.propTypes = {
-  name: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  types: PropTypes.arrayOf(PropTypes.number).isRequired,
-  sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
-  addedCount: PropTypes.number,
-};
-PizzaBlock.defaultProps = {
-  name: 'название пиццы',
-  imageUrl:
-    'https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg',
-  price: 0,
-  types: [],
-  sizes: [],
-  addedCount: 0,
 };
 
 export default PizzaBlock;

@@ -1,10 +1,10 @@
-import React from 'react';
-import './scss/index.scss';
+import React, { FC } from 'react';
 import { Header } from './components';
 import { Home, Cart } from './pages';
 import { Route } from 'react-router-dom';
+import './scss/index.scss';
 
-function App() {
+const App: FC = () => {
   return (
     <div className="wrapper">
       <Header />
@@ -14,5 +14,5 @@ function App() {
       </div>
     </div>
   );
-}
+};
 export default App;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -15,8 +15,9 @@ import {
   filtersSelector,
   pizzasSelector,
 } from '../redux/selectors';
+import { IPizza, IPizzaModel } from '../types/types';
 
-function Home() {
+const Home: FC = () => {
   const dispatch = useDispatch();
   const { items, isLoaded } = useSelector(pizzasSelector);
   const { pizzaOrderCounter } = useSelector(cartSelector);
@@ -47,7 +48,7 @@ function Home() {
     [dispatch],
   );
 
-  const handleAddPizzaToCart = (pizza) => {
+  const handleAddPizzaToCart = (pizza: IPizzaModel) => {
     dispatch(addPizzaToCart(pizza));
   };
   return (
@@ -70,14 +71,14 @@ function Home() {
       <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
         {isLoaded
-          ? items.map((obj) => {
+          ? items.map((pizza: IPizza) => {
               return (
                 <PizzaBlock
                   onClickAddPizza={handleAddPizzaToCart}
                   isLoading={true}
-                  key={obj.id}
-                  addedCount={pizzaOrderCounter[obj.id]}
-                  {...obj}
+                  key={pizza.id}
+                  addedCount={pizzaOrderCounter[pizza.id]}
+                  {...pizza}
                 />
               );
             })
@@ -87,6 +88,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
