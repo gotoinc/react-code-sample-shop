@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
-function LoadingBlock() {
+const LoadingBlock: FC = () => {
   return (
     <div className="pizza-block">
       <ContentLoader
@@ -21,6 +21,6 @@ function LoadingBlock() {
       </ContentLoader>
     </div>
   );
-}
+};
 
 export default LoadingBlock;

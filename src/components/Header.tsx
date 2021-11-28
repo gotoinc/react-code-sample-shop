@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +7,7 @@ import Button from './Button';
 import logoSvg from '../assets/img/pizza-logo.svg';
 import { cartSelector } from '../redux/selectors';
 
-function Header(props) {
+const Header: FC = (props) => {
   const { totalPrice, totalCount } = useSelector(cartSelector);
 
   return (
@@ -64,6 +64,6 @@ function Header(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
