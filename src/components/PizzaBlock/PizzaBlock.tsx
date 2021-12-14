@@ -7,7 +7,7 @@ import { IPizza, IPizzaModel } from '../../types/types';
 
 export interface IPizzaBlock extends IPizza {
   onClickAddPizza: (pizza: IPizzaModel) => void;
-  addedCount: () => void;
+  addedCount: number | undefined;
   isLoading: boolean;
 }
 
@@ -103,7 +103,7 @@ const PizzaBlock: FC<IPizzaBlock> = ({
             />
           </svg>
           <span>Add</span>
-          <i>{`(${addedCount})`}</i>
+          <i>{`(${addedCount ? addedCount : 0})`}</i>
         </Button>
       </div>
     </div>
