@@ -122,6 +122,13 @@ Folders inside the src:
 
 **reducers** - folder with all reducers files. The main file in the folder is index.ts. All reducers are combined in index.ts file
 
+### `__tests__/`
+contains files of all tests of the applications
+
+#### coverage of components with tests using *React Testing Library*
+
+![tests](./src/assets/img/test.jpg)
+
 ### `pages/`
 
 contains files of all pages of the application
@@ -137,6 +144,3 @@ contains two folders:
 **fonts** - contains font files
 
 **img** - contains all images that are used in the project
-
-### `__tests__/`
-contains files of all tests of the applications

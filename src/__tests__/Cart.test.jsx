@@ -1,13 +1,12 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import Cart from '../pages/Cart';
-
-import { applyMiddleware, createStore } from 'redux';
-import rootReducer from '../redux/reducers';
-import thunk from 'redux-thunk';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import Cart from '../pages/Cart';
+import rootReducer from '../redux/reducers';
 
 const renderWithRedux = (
   component,
