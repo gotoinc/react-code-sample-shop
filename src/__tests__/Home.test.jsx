@@ -1,14 +1,11 @@
-import React from 'react';
 import { render } from '@testing-library/react';
-
-import Home from '../pages/Home';
-import { Provider, useDispatch } from 'react-redux';
-
-import { createStore } from 'redux';
-import rootReducer from '../redux/reducers/index';
-import { applyMiddleware } from 'redux';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
+import Home from '../pages/Home';
 import { setCategory } from '../redux/actions';
+import rootReducer from '../redux/reducers/index';
 
 const renderWithRedux = (
   component,

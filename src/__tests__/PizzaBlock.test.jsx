@@ -1,11 +1,14 @@
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
 import { PizzaBlock } from '../components';
+
+const types = [0, 1];
+const sizes = [26, 30, 40];
 
 describe('PizzaBlock', () => {
   const title = 'test title';
   it('renders PizzaBlock component', () => {
-    render(<PizzaBlock name={title} />);
+    render(<PizzaBlock name={title} types={types} sizes={sizes} />);
 
     expect(screen.getByText(title)).toBeInTheDocument();
   });
@@ -14,8 +17,7 @@ describe('PizzaBlock', () => {
     const setStateMock = jest.fn();
     const useStateMock = (useState) => [useState, setStateMock];
     jest.spyOn(React, 'useState').mockImplementation(useStateMock);
-    const types = [1,2,3];
-    render(<PizzaBlock types={types} />);
+    render(<PizzaBlock types={types} sizes={sizes} />);
     const button = screen.getAllByTestId('item-select-type')[1];
     fireEvent.click(button);
     expect(setStateMock).not.toBeCalledTimes(1);
@@ -23,11 +25,11 @@ describe('PizzaBlock', () => {
 
   it('should adds pizza on click', () => {
     const mockAddPizza = jest.fn();
-    render(<PizzaBlock onClickAddPizza={mockAddPizza} />);
+    render(<PizzaBlock onClickAddPizza={mockAddPizza} types={types} sizes={sizes} />);
 
     const button = screen.getByTestId('add-pizza-button');
     fireEvent.click(button);
 
-    expect(mockAddPizza).toHaveBeenCalled();
+    expect(mockAddPizza).toBeCalledTimes(1);
   });
 });

@@ -93,7 +93,7 @@ const Cart: FC = () => {
                     fill="#8B949D"
                   />
                 </svg>
-                <span onClick={onClearCart}>Remove all</span>
+                <span data-testid="item-clear" onClick={onClearCart}>Remove all</span>
               </div>
             </div>
             <div className="content__items">
