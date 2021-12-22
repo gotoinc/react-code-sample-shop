@@ -7,7 +7,7 @@ export interface IFiltersState {
 }
 
 export interface IPizzasState {
-  items: Array<string>;
+  items: Array<string> | any;
   isLoaded: Array<string> | boolean;
 }
 
