@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -14,10 +14,15 @@ import {
 } from '../redux/actions';
 import { cartSelector } from '../redux/selectors';
 
-function Cart() {
+interface IConfirm {
+  question: string | null;
+  afterAction: null | Function;
+}
+
+const Cart: FC = () => {
   const dispatch = useDispatch();
 
-  const [confirm, setConfirm] = useState({
+  const [confirm, setConfirm] = useState<IConfirm>({
     question: null,
     afterAction: null,
   });
@@ -34,28 +39,28 @@ function Cart() {
     });
   };
 
-  const onRemoveItem = (id) => {
+  const onRemoveItem = (id: number) => {
     setConfirm({
       question: 'Do you really want to delete ?',
       afterAction: () => removeCartItem(id),
     });
   };
 
-  const onConfirmClick = (result) => {
+  const onConfirmClick = (result: boolean) => {
     setConfirm((prevState) => ({
       ...prevState,
       question: null,
     }));
     if (result) {
-      dispatch(confirm.afterAction());
+      dispatch(confirm.afterAction!());
     }
   };
 
-  const onPlusItem = (id) => {
+  const onPlusItem = (id: number) => {
     dispatch(plusCartItem(id));
   };
 
-  const onMinusItem = (id) => {
+  const onMinusItem = (id: number) => {
     dispatch(minusCartItem(id));
   };
 
@@ -88,7 +93,7 @@ function Cart() {
                     fill="#8B949D"
                   />
                 </svg>
-                <span onClick={onClearCart}>Remove all</span>
+                <span data-testid="item-clear" onClick={onClearCart}>Remove all</span>
               </div>
             </div>
             <div className="content__items">
@@ -166,6 +171,6 @@ function Cart() {
       )}
     </div>
   );
-}
+};
 
 export default Cart;

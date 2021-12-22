@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-function Button({ className, outline, onClick, children, dataTestId }) {
+interface IButtonProps {
+  className?: string;
+  dataTestId?: string;
+  outline?: boolean;
+  onClick?: () => void;
+}
+
+const Button: FC<IButtonProps> = ({
+  className,
+  outline,
+  onClick,
+  children,
+  dataTestId,
+}) => {
   return (
     <button
       data-testid={dataTestId}
@@ -14,7 +27,7 @@ function Button({ className, outline, onClick, children, dataTestId }) {
       {children}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   onClick: PropTypes.func,

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-function Confirm({ question, onConfirmClick }) {
+interface IConfirm {
+  question: string;
+  onConfirmClick: (isClick: boolean) => void;
+}
+
+const Confirm: FC<IConfirm> = ({ question, onConfirmClick }) => {
   return (
     <div className="confirm">
       <div className="confirm__wrapper">
@@ -24,6 +29,6 @@ function Confirm({ question, onConfirmClick }) {
       </div>
     </div>
   );
-}
+};
 
 export default Confirm;

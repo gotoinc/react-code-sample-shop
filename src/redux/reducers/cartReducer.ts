@@ -1,29 +1,36 @@
-const initialState = {
+import { IAddPizzaToCart, ICurrentId, IPizzaObj } from '../actions/cartActions';
+import { CartActionTypes } from '../constants/cartActionTypes';
+import { ICartState } from './interfaces';
+
+const initialState: ICartState = {
   items: {},
   totalPrice: 0,
   totalCount: 0,
   pizzaOrderCounter: {},
 };
 
-const getTotalPrice = (arr) => arr.reduce((sum, obj) => obj.price + sum, 0);
+type CartActions = ICurrentId | IAddPizzaToCart | IPizzaObj | any;
 
-const _get = (obj, path) => {
+const getTotalPrice = (arr: any[]) =>
+  arr.reduce((sum, obj) => obj.price + sum, 0);
+
+const _get = (obj: any, path: string) => {
   const [firstKey, ...keys] = path.split('.');
   return keys.reduce((val, key) => {
     return val[key];
   }, obj[firstKey]);
 };
 
-const getTotalSum = (obj, path) => {
+const getTotalSum = (obj: any, path: string) => {
   return Object.values(obj).reduce((sum, obj) => {
     const value = _get(obj, path);
     return sum + value;
   }, 0);
 };
 
-export const cart = (state = initialState, action) => {
+export const cart = (state = initialState, action: CartActions): ICartState => {
   switch (action.type) {
-    case 'ADD_PIZZA_CART': {
+    case CartActionTypes.ADD_PIZZA_CART: {
       const key = `${action.payload.id}_${action.payload.type}_${action.payload.size}`;
 
       const currentPizzaItems = !state.items[key]
@@ -55,7 +62,7 @@ export const cart = (state = initialState, action) => {
       };
     }
 
-    case 'REMOVE_CART_ITEM': {
+    case CartActionTypes.REMOVE_CART_ITEM: {
       console.log(action.payload);
       const newItems = {
         ...state.items,
@@ -72,13 +79,13 @@ export const cart = (state = initialState, action) => {
       return {
         ...state,
         items: newItems,
-        totalPrice: state.totalPrice - currentTotalPrice,
-        totalCount: state.totalCount - currentTotalCount,
+        totalPrice: (state.totalPrice as number) - currentTotalPrice,
+        totalCount: (state.totalCount as number) - currentTotalCount,
         pizzaOrderCounter,
       };
     }
 
-    case 'PLUS_CART_ITEM': {
+    case CartActionTypes.PLUS_CART_ITEM: {
       const newObjItems = [
         ...state.items[action.payload.key].items,
         state.items[action.payload.key].items[0],
@@ -107,7 +114,7 @@ export const cart = (state = initialState, action) => {
       };
     }
 
-    case 'MINUS_CART_ITEM': {
+    case CartActionTypes.MINUS_CART_ITEM: {
       const oldItems = state.items[action.payload.key].items;
       const newObjItems =
         oldItems.length > 1
@@ -136,7 +143,7 @@ export const cart = (state = initialState, action) => {
       };
     }
 
-    case 'CLEAR_CART':
+    case CartActionTypes.CLEAR_CART:
       return { totalPrice: 0, totalCount: 0, items: {}, pizzaOrderCounter: {} };
 
     default:
