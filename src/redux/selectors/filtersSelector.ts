@@ -1,1 +1,4 @@
-export const filtersSelector = (state: any) => state.filters;
+import { RootState } from '../reducers';
+import { IFiltersState } from '../reducers/interfaces';
+
+export const filtersSelector = (state: RootState): IFiltersState => state.filters;

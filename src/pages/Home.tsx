@@ -1,14 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { Categories, SortPopup, PizzaBlock, LoadingBlock } from '../components';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Categories, LoadingBlock, PizzaBlock, SortPopup } from '../components';
 import {
+  addPizzaToCart,
+  fetchPizzas,
   setCategory,
   setSortBy,
-  fetchPizzas,
-  addPizzaToCart,
 } from '../redux/actions';
 import {
   cartSelector,
