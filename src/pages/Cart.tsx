@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet';
 import { CartItem, Button, Confirm } from '../components/index';
 
 import cartEmptyImage from '../assets/img/empty-cart.png';
+import removeIcon from '../assets/img/trash.svg'
+import goBackIcon from '../assets/img/grey-arrow-left.svg'
 import {
   clearCart,
   minusCartItem,
@@ -79,20 +81,7 @@ const Cart: FC = () => {
             <div className="cart__top">
               <h2 className="content__title">Cart</h2>
               <div className="cart__clear">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M13.7787 2.46466L12.1624 0.848417L7.31372 5.69711L2.46502 0.848417L0.84878 2.46466L5.69747 7.31336L0.848711 12.1621L2.46495 13.7784L7.31372 8.92961L12.1625 13.7784L13.7787 12.1621L8.92996 7.31336L13.7787 2.46466Z"
-                    fill="#8B949D"
-                  />
-                </svg>
+                <img src={removeIcon} alt="remove" />
                 <span data-testid="item-clear" onClick={onClearCart}>Remove all</span>
               </div>
             </div>
@@ -128,21 +117,7 @@ const Cart: FC = () => {
                   to="/"
                   className="button button--outline button--add go-back-btn"
                 >
-                  <svg
-                    width="7"
-                    height="12"
-                    viewBox="0 0 7 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6 10.9288L1 6.23187L5.88479 1.64307"
-                      stroke="#151515"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <img src={goBackIcon} alt="go back" />
                   <span>Back</span>
                 </Link>
                 <Button onClick={onOrderBy} className="pay-btn">

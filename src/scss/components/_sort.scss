@@ -46,16 +46,18 @@
       border-radius: 14px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       @media (max-width: $mobile) {
         width: 100%;
         padding: 14px;
       }
 
-      svg {
+      img {
         transform: rotate(360deg);
         margin-left: 30px;
         margin-right: 8px;
+        margin-bottom: 5px;
         transform: translate(50%, 50%);
       }
     }
