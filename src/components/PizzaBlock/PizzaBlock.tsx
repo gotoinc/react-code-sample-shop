@@ -28,11 +28,13 @@ const PizzaBlock: FC<IPizzaBlock> = ({
   const [activeType, setActiveType] = useState<number>(types[0]);
   const [activeSize, setActiveSize] = useState<number>(0);
 
-  const onSelectType = (index: number) => {
+  const onSelectType = (index: number, disablet: boolean) => {
+    if (disablet) return
     setActiveType(index);
   };
 
-  const onSelectSize = (index: number) => {
+  const onSelectSize = (index: number, disablet: boolean) => {
+    if (disablet) return
     setActiveSize(index);
   };
 
@@ -54,33 +56,39 @@ const PizzaBlock: FC<IPizzaBlock> = ({
       <h4 className="pizza-block__title">{name}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {typeNames.map((type, index) => (
-            <li
-              key={type}
-              className={classNames({
-                active: activeType === index,
-                disabled: !types.includes(index),
-              })}
-              onClick={() => onSelectType(index)}
-              data-testid="item-select-type"
-            >
-              {type}
-            </li>
-          ))}
+          {typeNames.map((type, index) => {
+            const disabled = !types.includes(index)
+            return (
+              <li
+                key={type}
+                className={classNames({
+                  active: activeType === index,
+                  disabled,
+                })}
+                onClick={() => onSelectType(index, disabled)}
+                data-testid="item-select-type"
+              >
+                {type}
+              </li>
+            )
+          })}
         </ul>
         <ul>
-          {avaliableSizes.map((size, index) => (
-            <li
-              key={size}
-              className={classNames({
-                active: activeSize === index,
-                disabled: !sizes.includes(size),
-              })}
-              onClick={() => onSelectSize(index)}
-            >
-              {size} cm
-            </li>
-          ))}
+          {avaliableSizes.map((size, index) => {
+            const disabled = !types.includes(index)
+            return (
+              <li
+                key={size}
+                className={classNames({
+                  active: activeSize === index,
+                  disabled,
+                })}
+                onClick={() => onSelectSize(index, disabled)}
+              >
+                {size} cm
+              </li>
+            )
+          })}
         </ul>
       </div>
       <div className="pizza-block__bottom">

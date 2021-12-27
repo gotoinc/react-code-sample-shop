@@ -83,8 +83,29 @@
           color: $black;
         }
         &.disabled {
-          opacity: 0.4;
-          pointer-events: none;
+          position: relative;
+          pointer-events: fill;
+          color: $gray;
+          &:hover::after {
+            width: 130px;
+            content: 'field is not available';
+            position: absolute;
+            top: -55px;
+            left: calc(50% - 65px);
+            background: #FFFFFF;
+            box-shadow: 30px 30px 74px rgba(30, 70, 129, 0.08);
+            border-radius: 6px;            
+            padding: 12px 8px;
+          }
+          &:hover::before{
+            border: solid;
+            border-color: #fff transparent;
+            border-width: 10px 8px 0 8px;
+            content: "";
+            left: 48%;
+            bottom: 37px;
+            position: absolute;
+          }
         }
       }
     }
