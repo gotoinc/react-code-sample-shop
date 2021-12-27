@@ -3,6 +3,8 @@
 **React code sample shop** is a site where you can order food (pizza), select the quantity and pay in the basket.
 The project is made using technologies such as *ReactJs*, *Typescript*, *Redux*, *SCSS/SASS-preprocessor*, also the application is covered with tests(*React testing library*).
 
+You can see a demo [here](https://react-code-sample-project.herokuapp.com/#/)
+
 ![website](./src/assets/img/website.jpg)
 
 # **Project set up description**
