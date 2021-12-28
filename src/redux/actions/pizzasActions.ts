@@ -1,4 +1,7 @@
 import axios from 'axios';
+
+import { getPizza } from '../../helpers/api';
+import { ISortBy } from '../../types/types';
 import { PizzasActionTypes } from '../constants/pizzasActionTypes';
 
 export interface ISetLoaded {
@@ -17,14 +20,9 @@ export const setLoaded = (payload: boolean) => ({
   payload,
 });
 
-export const fetchPizzas = (sortBy: any, category: any) => (dispatch: any) => {
+export const fetchPizzas = (sortBy: ISortBy, category: number | null) => (dispatch: any) => {
   dispatch(setLoaded(false));
-  axios
-    .get(
-      `/pizzas?${category === null ? '' : `category=${category}`}&_sort=${
-        sortBy.type
-      }&_order=${sortBy.order}`,
-    )
+  getPizza(category, sortBy)
     .then(({ data }) => {
       dispatch(setPizzas(data));
     });

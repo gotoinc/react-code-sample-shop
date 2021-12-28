@@ -17,3 +17,8 @@ export interface IPizzaModel {
   type: string;
   size: number;
 }
+
+export interface ISortBy {
+  type: string
+  order: string
+}

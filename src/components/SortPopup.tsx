@@ -35,7 +35,6 @@ const SortPopup: FC<ISortPopup> = React.memo(
     }, []);
 
     const onSelectItem = (typeOfPizza: ItemType) => {
-      console.log(typeOfPizza);
       onClickSortType(typeOfPizza);
       setVisiblePopup(false);
     };
