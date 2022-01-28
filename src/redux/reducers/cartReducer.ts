@@ -1,4 +1,4 @@
-import { IAddPizzaToCart, ICurrentId, IPizzaObj } from '../actions/cartActions';
+import { CartActions } from './../actions/cartActions';
 import { CartActionTypes } from '../constants/cartActionTypes';
 import { ICartState } from './interfaces';
 
@@ -8,8 +8,6 @@ const initialState: ICartState = {
   totalCount: 0,
   pizzaOrderCounter: {},
 };
-
-type CartActions = ICurrentId | IAddPizzaToCart | IPizzaObj | any;
 
 const getTotalPrice = (arr: any[]) =>
   arr.reduce((sum, obj) => obj.price + sum, 0);
@@ -74,7 +72,7 @@ export const cart = (state = initialState, action: CartActions): ICartState => {
         ...state.pizzaOrderCounter,
         [action.payload.id]:
           state.pizzaOrderCounter[action.payload.id] -
-          action.payload.removedPizzaAmount,
+          (action.payload.removedPizzaAmount || 0),
       };
       return {
         ...state,

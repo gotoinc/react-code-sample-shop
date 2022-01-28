@@ -15,6 +15,7 @@ import {
   removeCartItem,
 } from '../redux/actions';
 import { cartSelector } from '../redux/selectors';
+import { IPizzaObject } from '../types/types';
 
 interface IConfirm {
   question: string | null;
@@ -41,10 +42,10 @@ const Cart: FC = () => {
     });
   };
 
-  const onRemoveItem = (id: number) => {
+  const onRemoveItem = (cart: IPizzaObject) => {
     setConfirm({
       question: 'Do you really want to delete ?',
-      afterAction: () => removeCartItem(id),
+      afterAction: () => removeCartItem(cart),
     });
   };
 
@@ -58,12 +59,12 @@ const Cart: FC = () => {
     }
   };
 
-  const onPlusItem = (id: number) => {
-    dispatch(plusCartItem(id));
+  const onPlusItem = (cart: IPizzaObject) => {
+    dispatch(plusCartItem(cart));
   };
 
-  const onMinusItem = (id: number) => {
-    dispatch(minusCartItem(id));
+  const onMinusItem = (cart: IPizzaObject) => {
+    dispatch(minusCartItem(cart));
   };
 
   const onOrderBy = () => {

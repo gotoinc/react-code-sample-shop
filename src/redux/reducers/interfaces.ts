@@ -8,8 +8,8 @@ export interface IFiltersState {
 
 export interface IPizzasState {
   items: Array<string>;
-  isLoaded: Array<string> | boolean;
-}
+  isLoaded: boolean;
+ }
 
 export interface ICartState {
   items: any;

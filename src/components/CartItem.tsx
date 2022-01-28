@@ -1,16 +1,9 @@
 import React, { FC } from 'react';
-
 import Button from './Button';
-
 import minusIcon from '../assets/img/minus.svg'
 import plusIcon from '../assets/img/plus.svg'
 import removeIcon from '../assets/img/trash.svg'
-
-type Pizza = {
-  key: string;
-  id: number;
-  removedPizzaAmount?: number;
-};
+import { IPizzaObject } from '../types/types';
 
 interface ICartItem {
   id: number;
@@ -20,9 +13,9 @@ interface ICartItem {
   totalPrice: number;
   totalCount: number;
   pizzaKey: string;
-  onRemove: (curPizza: Pizza) => void;
-  onMinus: (curPizza: Pizza) => void;
-  onPlus: (curPizza: Pizza) => void;
+  onRemove: (curPizza: IPizzaObject) => void;
+  onMinus: (curPizza: IPizzaObject) => void;
+  onPlus: (curPizza: IPizzaObject) => void;
 }
 
 const CartItem: FC<ICartItem> = ({

@@ -1,21 +1,18 @@
-import axios from 'axios';
-
 import { getPizza } from '../../helpers/api';
 import { ISortBy } from '../../types/types';
 import { PizzasActionTypes } from '../constants/pizzasActionTypes';
 
 export interface ISetLoaded {
-  type: string;
-  payload: any[];
+  type: PizzasActionTypes.SET_LOADED;
+  payload: boolean;
 }
 
 export interface ISetPizzas {
-  type: string;
-  payload: any[];
-  isLoaded: boolean;
-}
+  type: PizzasActionTypes.SET_PIZZAS;
+  payload: Array<string>;
+ }
 
-export const setLoaded = (payload: boolean) => ({
+export const setLoaded = (payload: boolean): ISetLoaded => ({
   type: PizzasActionTypes.SET_LOADED,
   payload,
 });
@@ -24,11 +21,13 @@ export const fetchPizzas = (sortBy: ISortBy, category: number | null) => (dispat
   dispatch(setLoaded(false));
   getPizza(category, sortBy)
     .then(({ data }) => {
-      dispatch(setPizzas(data));
+        dispatch(setPizzas(data));
     });
 };
 
-export const setPizzas = (items: any[]) => ({
+export const setPizzas = (items: Array<string>):ISetPizzas => ({
   type: PizzasActionTypes.SET_PIZZAS,
   payload: items,
 });
+
+export type PizzasAction = ISetLoaded | ISetPizzas;

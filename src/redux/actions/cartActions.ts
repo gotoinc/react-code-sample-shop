@@ -1,44 +1,50 @@
+import { IPizzaModel, IPizzaObject } from './../../types/types';
 import { CartActionTypes } from '../constants/cartActionTypes';
 
-export interface ICurrentId {
-  type: string;
-  payload?: number;
-}
-
-export interface IPizzaObj {
-  id: number;
-  imageUrl: string;
-  name: string;
-  price: number;
-  size: number;
-  type: string;
-};
-
 export interface IAddPizzaToCart {
-  type: string;
-  payload?: IPizzaObj;
+  type: CartActionTypes.ADD_PIZZA_CART;
+  payload: IPizzaModel;
+}
+export interface IClearCart {
+  type: CartActionTypes.CLEAR_CART;
 }
 
-export const addPizzaToCart = (pizzaObj: IPizzaObj) => ({
+export interface IRemoveCartItem {
+  type: CartActionTypes.REMOVE_CART_ITEM;
+  payload: IPizzaObject,
+}
+export interface IPlusCartItem {
+  type: CartActionTypes.PLUS_CART_ITEM;
+  payload: IPizzaObject,
+}
+
+export interface IMinusCartItem {
+  type: CartActionTypes.MINUS_CART_ITEM;
+  payload: IPizzaObject,
+}
+
+export const addPizzaToCart = (payload: IPizzaModel): IAddPizzaToCart => ({
   type: CartActionTypes.ADD_PIZZA_CART,
-  payload: pizzaObj,
+  payload,
 });
 
-export const clearCart = () => ({
+export const clearCart = (): IClearCart => ({
   type: CartActionTypes.CLEAR_CART,
 });
 
-export const removeCartItem = (id: number) => ({
+export const removeCartItem = (payload: IPizzaObject): IRemoveCartItem => ({
   type: CartActionTypes.REMOVE_CART_ITEM,
-  payload: id,
+  payload,
 });
 
-export const plusCartItem = (id: number) => ({
+export const plusCartItem = (payload: IPizzaObject): IPlusCartItem => ({
   type: CartActionTypes.PLUS_CART_ITEM,
-  payload: id,
+  payload,
 });
 
-export const minusCartItem = (id: number) => ({
+export const minusCartItem = (payload: IPizzaObject): IMinusCartItem => ({
   type: CartActionTypes.MINUS_CART_ITEM,
-  payload: id,
+  payload,
 });
+
+export type CartActions = IAddPizzaToCart | IMinusCartItem | IRemoveCartItem | IPlusCartItem | IClearCart;

@@ -18,7 +18,13 @@ export interface IPizzaModel {
   size: number;
 }
 
+export interface IPizzaObject {
+  key: string;
+  id: number;
+  removedPizzaAmount?: number;
+};
 export interface ISortBy {
   type: string
   order: string
 }
+

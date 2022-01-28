@@ -29,7 +29,7 @@ const Home: FC = () => {
 
   const categoryNames = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Stuffed'];
   const sortItems = [
-    { name: 'Popularity', type: 'popylar', order: 'desc' },
+    { name: 'Popularity', type: 'popular', order: 'desc' },
     { name: 'Price', type: 'price', order: 'desc' },
     { name: 'Alphabetically', type: 'name', order: 'asc' },
   ];
@@ -82,7 +82,7 @@ const Home: FC = () => {
                 />
               );
             })
-          : Array(12)
+          : Array(items.length)
               .fill(0)
               .map((_, index) => <LoadingBlock key={index} />)}
       </div>
