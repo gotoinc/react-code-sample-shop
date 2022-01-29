@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import Button from './Button';
-import minusIcon from '../assets/img/minus.svg'
-import plusIcon from '../assets/img/plus.svg'
-import removeIcon from '../assets/img/trash.svg'
-import { IPizzaObject } from '../types/types';
+import { Button } from '..';
+import { IPizzaObject } from '../../types/types';
+import minusIcon from '../../assets/img/minus.svg'
+import plusIcon from '../../assets/img/plus.svg'
+import removeIcon from '../../assets/img/trash.svg'
 
 interface ICartItem {
   id: number;
@@ -14,8 +14,8 @@ interface ICartItem {
   totalCount: number;
   pizzaKey: string;
   onRemove: (curPizza: IPizzaObject) => void;
-  onMinus: (curPizza: IPizzaObject) => void;
-  onPlus: (curPizza: IPizzaObject) => void;
+  onMinusItem: (curPizza: IPizzaObject) => void;
+  onPlusItem: (curPizza: IPizzaObject) => void;
 }
 
 const CartItem: FC<ICartItem> = ({
@@ -27,8 +27,8 @@ const CartItem: FC<ICartItem> = ({
   totalPrice,
   totalCount,
   onRemove,
-  onMinus,
-  onPlus,
+  onMinusItem,
+  onPlusItem,
 }) => {
   const handleRemoveClick = () => {
     onRemove({ key: pizzaKey, id, removedPizzaAmount: totalCount });
@@ -36,11 +36,11 @@ const CartItem: FC<ICartItem> = ({
 
   const handleMinusClick = () => {
     if (totalCount <= 1) return;
-    onMinus({ key: pizzaKey, id });
+    onMinusItem({ key: pizzaKey, id });
   };
 
   const handlePlusClick = () => {
-    onPlus({ key: pizzaKey, id });
+    onPlusItem({ key: pizzaKey, id });
   };
 
   return (

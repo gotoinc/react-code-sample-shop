@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import CartItem from './../components/CartItem';
+import CartItem from './../components/Cart/CartItem';
 
 describe('CartItem', () => {
   it('renders CartItem', () => {
@@ -21,7 +21,7 @@ describe('CartItem', () => {
 
   it('should increment on click', () => {
     const mockIncrementAction = jest.fn();
-    render(<CartItem onPlus={mockIncrementAction} />);
+    render(<CartItem onPlusItem={mockIncrementAction} />);
 
     const button = screen.getByTestId('button-plus');
     fireEvent.click(button);
@@ -31,7 +31,7 @@ describe('CartItem', () => {
 
   it('should decrement on click', () => {
     const mockDecrementAction = jest.fn();
-    render(<CartItem onMinus={mockDecrementAction} />);
+    render(<CartItem onMinusItem={mockDecrementAction} />);
 
     const button = screen.getByTestId('button-minus');
     fireEvent.click(button);
