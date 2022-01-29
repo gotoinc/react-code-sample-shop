@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
 import Button from './Button';
-
 import logoSvg from '../assets/img/pizza-logo.svg';
 import cartIcon from '../assets/img/cart.svg';
 import { cartSelector } from '../redux/selectors';
@@ -12,7 +10,7 @@ const Header: FC = (props) => {
   const { totalPrice, totalCount } = useSelector(cartSelector);
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="container">
         <Link to="/">
           <div className="header__logo">
@@ -34,7 +32,7 @@ const Header: FC = (props) => {
           </Link>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

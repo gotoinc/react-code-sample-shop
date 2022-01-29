@@ -28,3 +28,14 @@ export interface ISortBy {
   order: string
 }
 
+export interface IItem {
+  name: string;
+  type: string;
+  order: string;
+};
+
+export interface IConfirm {
+  question: string | null;
+  afterAction: null | Function;
+}
+

@@ -1,10 +1,9 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-
 import Button from '../Button';
 import { IPizza, IPizzaModel } from '../../types/types';
-
 import plusIcon from '../../assets/img/plus.svg'
+import { availableSizes, typeNames } from '../../data';
 
 export interface IPizzaBlock extends IPizza {
   onClickAddPizza: (pizza: IPizzaModel) => void;
@@ -18,24 +17,21 @@ const PizzaBlock: FC<IPizzaBlock> = ({
   name,
   price,
   types,
-  sizes,
   onClickAddPizza,
   addedCount,
 }) => {
-  const typeNames = ['thin', 'classic'];
-  const avaliableSizes = [26, 30, 40];
-
   const [activeType, setActiveType] = useState<number>(types[0]);
   const [activeSize, setActiveSize] = useState<number>(0);
-
-  const onSelectType = (index: number, disablet: boolean) => {
-    if (disablet) return
-    setActiveType(index);
+  const onSelectType = (index: number, disabled: boolean) => {
+    if (!disabled) {
+      setActiveType(index);
+    }
   };
 
-  const onSelectSize = (index: number, disablet: boolean) => {
-    if (disablet) return
-    setActiveSize(index);
+  const onSelectSize = (index: number, disabled: boolean) => {
+    if (!disabled) {
+      setActiveSize(index);
+    }
   };
 
   const onAddPizza = () => {
@@ -45,7 +41,7 @@ const PizzaBlock: FC<IPizzaBlock> = ({
       imageUrl,
       price,
       type: typeNames[activeType],
-      size: avaliableSizes[activeSize],
+      size: availableSizes[activeSize],
     };
     onClickAddPizza(pizzaModel);
   };
@@ -74,7 +70,7 @@ const PizzaBlock: FC<IPizzaBlock> = ({
           })}
         </ul>
         <ul>
-          {avaliableSizes.map((size, index) => {
+          {availableSizes.map((size, index) => {
             const disabled = !types.includes(index)
             return (
               <li
