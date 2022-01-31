@@ -1,1 +1,2 @@
-export const pizzasSelector = (state: any) => state.pizzas;
+import { RootState } from './../store';
+export const pizzasSelector = (state: RootState) => state.pizzas;

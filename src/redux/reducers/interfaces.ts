@@ -1,4 +1,4 @@
-import { IPizzaModel, ICartItems } from './../../types/types';
+import { ICartItems, IPizza } from './../../types/types';
 export interface IFiltersState {
   category: number | null;
   sortBy: {
@@ -8,7 +8,7 @@ export interface IFiltersState {
 }
 
 export interface IPizzasState {
-  items: Array<string>;
+  items: Array<IPizza>;
   isLoaded: boolean;
  }
 

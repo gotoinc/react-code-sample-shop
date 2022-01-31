@@ -1,6 +1,7 @@
 import { getPizza } from '../../helpers/api';
-import { ISortBy } from '../../types/types';
+import { IPizza, ISortBy } from '../../types/types';
 import { PizzasActionTypes } from '../constants/pizzasActionTypes';
+import { AppDispatch } from '../store';
 
 export interface ISetLoaded {
   type: PizzasActionTypes.SET_LOADED;
@@ -9,7 +10,7 @@ export interface ISetLoaded {
 
 export interface ISetPizzas {
   type: PizzasActionTypes.SET_PIZZAS;
-  payload: Array<string>;
+  payload: Array<IPizza>;
  }
 
 export const setLoaded = (payload: boolean): ISetLoaded => ({
@@ -17,7 +18,7 @@ export const setLoaded = (payload: boolean): ISetLoaded => ({
   payload,
 });
 
-export const fetchPizzas = (sortBy: ISortBy, category: number | null) => (dispatch: any) => {
+export const fetchPizzas = (sortBy: ISortBy, category: number | null) => (dispatch: AppDispatch) => {
   dispatch(setLoaded(false));
   getPizza(category, sortBy)
     .then(({ data }) => {
@@ -25,7 +26,7 @@ export const fetchPizzas = (sortBy: ISortBy, category: number | null) => (dispat
     });
 };
 
-export const setPizzas = (items: Array<string>):ISetPizzas => ({
+export const setPizzas = (items: Array<IPizza>):ISetPizzas => ({
   type: PizzasActionTypes.SET_PIZZAS,
   payload: items,
 });

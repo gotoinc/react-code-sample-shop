@@ -1,1 +1,2 @@
-export const filtersSelector = (state: any) => state.filters;
+import { RootState } from './../store';
+export const filtersSelector = (state: RootState) => state.filters;
