@@ -21,6 +21,10 @@ const Home: FC = () => {
   const { items, isLoaded } = useSelector(pizzasSelector);
   const { pizzaOrderCounter } = useSelector(cartSelector);
   const { category, sortBy } = useSelector(filtersSelector);
+  const categoryName = (category >= 0
+    && categoryNames.length >= category)
+    ? categoryNames[category]
+    : "All pizzas";
 
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
@@ -61,7 +65,7 @@ const Home: FC = () => {
           onClickSortType={onSelectSortType}
         />
       </div>
-      <h2 className="content__title">All pizzas</h2>
+      <h2 className="content__title">{categoryName}</h2>
       <div className="content__items">
         {isLoaded
           ? items.map((pizza: IPizza) => {
