@@ -1,12 +1,19 @@
+
+export interface IPrice {
+  type: number;
+  size: number;
+  price: number;
+}
+
 export interface IPizza {
   category: number;
   id: number;
   imageUrl: string;
   name: string;
-  price: number;
   rating: number;
   sizes: number[];
   types: number[];
+  prices: IPrice[];
 }
 
 export interface IPizzaModel {

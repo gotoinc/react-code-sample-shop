@@ -48,6 +48,24 @@ const Home: FC = () => {
     dispatch(addPizzaToCart(pizza));
   };
 
+  const renderPizzas = () => (
+    isLoaded
+      ? items.map((pizza: IPizza) => {
+        return (
+          <PizzaBlock
+            onClickAddPizza={handleAddPizzaToCart}
+            isLoading={true}
+            key={pizza.id}
+            addedCount={pizzaOrderCounter[pizza.id]}
+            {...pizza}
+          />
+        );
+      })
+      : Array(items.length)
+        .fill(0)
+        .map((_, index) => <LoadingBlock key={index} />)
+  )
+
   return (
     <div className="container">
       <Helmet>
@@ -67,21 +85,7 @@ const Home: FC = () => {
       </div>
       <h2 className="content__title">{categoryName}</h2>
       <div className="content__items">
-        {isLoaded
-          ? items.map((pizza: IPizza) => {
-            return (
-              <PizzaBlock
-                onClickAddPizza={handleAddPizzaToCart}
-                isLoading={true}
-                key={pizza.id}
-                addedCount={pizzaOrderCounter[pizza.id]}
-                {...pizza}
-              />
-            );
-          })
-          : Array(items.length)
-            .fill(0)
-            .map((_, index) => <LoadingBlock key={index} />)}
+        {renderPizzas()}
       </div>
     </div>
   );
