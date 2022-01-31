@@ -11,17 +11,25 @@ export interface IPizzaBlock extends IPizza {
   isLoading: boolean;
 }
 
+const getInitialActiveSize = (sizes: Array<number>) => {
+  const activeSize = availableSizes.findIndex(
+    (size: number) => sizes.includes(size)
+  );
+  return activeSize
+}
+
 const PizzaBlock: FC<IPizzaBlock> = ({
   id,
   imageUrl,
   name,
   price,
   types,
+  sizes,
   onClickAddPizza,
   addedCount,
 }) => {
   const [activeType, setActiveType] = useState<number>(types[0]);
-  const [activeSize, setActiveSize] = useState<number>(0);
+  const [activeSize, setActiveSize] = useState<number>(getInitialActiveSize(sizes));
   const onSelectType = (index: number, disabled: boolean) => {
     if (!disabled) {
       setActiveType(index);
@@ -35,6 +43,12 @@ const PizzaBlock: FC<IPizzaBlock> = ({
   };
 
   const onAddPizza = () => {
+
+    if (activeSize === -1) {
+      alert("Size of pizza should be defined!")
+      return;
+    }
+
     const pizzaModel: IPizzaModel = {
       id,
       name,
@@ -71,7 +85,7 @@ const PizzaBlock: FC<IPizzaBlock> = ({
         </ul>
         <ul>
           {availableSizes.map((size, index) => {
-            const disabled = !types.includes(index)
+            const disabled = !sizes.includes(size)
             return (
               <li
                 key={size}
@@ -94,6 +108,7 @@ const PizzaBlock: FC<IPizzaBlock> = ({
           dataTestId="add-pizza-button"
           className="button--add"
           outline
+          disabled={activeSize === -1}
         >
           <img src={plusIcon} alt="plus" />
           <span>Add</span>
