@@ -1,14 +1,9 @@
 import React, { FC, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Categories, SortPopup, PizzaBlock, LoadingBlock } from '../components';
 import { categoryNames, sortItems } from '../data';
-import {
-  setCategory,
-  setSortBy,
-  fetchPizzas,
-  addPizzaToCart,
-} from '../redux/actions';
+import { addPizzaToCart, fetchPizzas, setCategory, setSortBy } from '../redux/actions';
 import {
   cartSelector,
   filtersSelector,
@@ -21,7 +16,7 @@ const Home: FC = () => {
   const { items, isLoaded } = useSelector(pizzasSelector);
   const { pizzaOrderCounter } = useSelector(cartSelector);
   const { category, sortBy } = useSelector(filtersSelector);
-  const categoryName = (category >= 0
+  const categoryName = (typeof category === "number"
     && categoryNames.length >= category)
     ? categoryNames[category]
     : "All pizzas";
@@ -61,7 +56,7 @@ const Home: FC = () => {
           />
         );
       })
-      : Array(items.length)
+      : Array(category === null ? 12 : 3 * Math.ceil(items.length/3))
         .fill(0)
         .map((_, index) => <LoadingBlock key={index} />)
   )
