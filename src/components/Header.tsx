@@ -8,10 +8,11 @@ import { cartSelector } from '../redux/selectors';
 
 const Header: FC = (props) => {
   const { totalPrice, totalCount } = useSelector(cartSelector);
+  const handleClick = () => window.scrollTo(0,0);
 
   return (
     <header className="header">
-      <div className="container">
+      <div className="container" onClick={handleClick}>
         <Link to="/">
           <div className="header__logo">
             <img width="38" src={logoSvg} alt="Pizza logo" />
