@@ -1,3 +1,4 @@
+import { IPizzaModel, ICartItems } from './../../types/types';
 export interface IFiltersState {
   category: number | null;
   sortBy: {
@@ -12,8 +13,8 @@ export interface IPizzasState {
  }
 
 export interface ICartState {
-  items: any;
-  totalPrice: unknown | number;
-  totalCount: unknown | number;
-  pizzaOrderCounter: any;
+  items: ICartItems;
+  totalPrice: number;
+  totalCount: number;
+  pizzaOrderCounter: {[key:number]: number};
 }

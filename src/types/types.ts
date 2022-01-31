@@ -38,4 +38,8 @@ export interface IConfirm {
   question: string | null;
   afterAction: null | Function;
 }
+export type ICartObject = { items: Array<IPizzaModel>, totalPrice: number };
+export type ICartItems = { [key: string]: ICartObject };
+
+
 
