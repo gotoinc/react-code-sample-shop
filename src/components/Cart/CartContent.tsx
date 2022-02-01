@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { CartItem } from '..';
 import { minusCartItem, plusCartItem } from '../../redux/actions';
-import { cartSelector } from '../../redux/selectors';
+import { cartSelectorPizza, cartSelector } from '../../redux/selectors/cartSelector';
 import { IPizzaObject } from '../../types/types';
 
 interface ICartContent {
@@ -13,8 +13,8 @@ const CartContent: FC<ICartContent> = ({
    onRemoveItem,
 }) => {
    const dispatch = useDispatch();
-   const { items } = useSelector(cartSelector);
-   const pizzas = Object.keys(items).map((key) => items[key].items[0]);
+   const { items } = useSelector(cartSelector, shallowEqual);
+   const pizzas = useSelector(cartSelectorPizza);
    const onPlusItem = (cart: IPizzaObject) => {
       dispatch(plusCartItem(cart));
     };

@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Categories, SortPopup, PizzaBlock, LoadingBlock } from '../components';
 import { categoryNames, sortItems } from '../data';
 import { addPizzaToCart, fetchPizzas, setCategory, setSortBy } from '../redux/actions';
@@ -13,9 +13,9 @@ import { IPizza, IPizzaModel } from '../types/types';
 
 const Home: FC = () => {
   const dispatch = useDispatch();
-  const { items, isLoaded } = useSelector(pizzasSelector);
-  const { pizzaOrderCounter } = useSelector(cartSelector);
-  const { category, sortBy } = useSelector(filtersSelector);
+  const { items, isLoaded } = useSelector(pizzasSelector, shallowEqual);
+  const { pizzaOrderCounter } = useSelector(cartSelector, shallowEqual);
+  const { category, sortBy } = useSelector(filtersSelector, shallowEqual);
   const categoryName = (typeof category === "number"
     && categoryNames.length >= category)
     ? categoryNames[category]

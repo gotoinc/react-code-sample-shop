@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button } from '..';
 import { cartSelector } from '../../redux/selectors';
 import goBackIcon from '../../assets/img/grey-arrow-left.svg'
 
 const CartFooter: FC = () => {
-   const { items, totalPrice, totalCount } = useSelector(cartSelector);
+   const { items, totalPrice, totalCount } = useSelector(cartSelector, shallowEqual);
    const onOrderBy = () => {
       console.debug('Ваш заказ ', items);
    };
