@@ -1,17 +1,15 @@
 import React, { FC } from 'react';
 import { Header } from './components';
-import { Home, Cart } from './pages';
-import { Route } from 'react-router-dom';
 import './scss/index.scss';
+import AppRouter from './components/AppRouter';
 
 const App: FC = () => {
   return (
     <div className="wrapper">
       <Header />
-      <div className="content">
-        <Route path="/" component={Home} exact />
-        <Route path="/cart" component={Cart} exact />
-      </div>
+      <main className="content">
+       <AppRouter />
+      </main>
     </div>
   );
 };

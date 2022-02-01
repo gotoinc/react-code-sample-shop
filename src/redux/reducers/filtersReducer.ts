@@ -1,16 +1,11 @@
-import {
-  ISetCategoryAction,
-  ISetSortByAction,
-} from '../actions/filtersActions';
+import { FiltersAction } from './../actions/filtersActions';
 import { FilterActionTypes } from './../constants/filtersActionTypes';
 import { IFiltersState } from './interfaces';
-
-type FiltersAction = ISetCategoryAction | ISetSortByAction;
 
 const initialState: IFiltersState = {
   category: null,
   sortBy: {
-    type: 'popylar',
+    type: 'rating',
     order: 'desc',
   },
 };

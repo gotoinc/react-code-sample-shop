@@ -13,14 +13,16 @@ export interface ISetSortByAction {
   };
 }
 
-export const setSortBy = ({ type, order }: any) => ({
+export const setSortBy = ({ type, order }: {type: string, order: string}): ISetSortByAction => ({
   type: FilterActionTypes.SET_SORT_BY,
   payload: { type, order },
 });
 
-export const setCategory = (index: number) => {
+export const setCategory = (index: number): ISetCategoryAction => {
   return {
     type: FilterActionTypes.SET_CATEGORY,
     payload: index,
   };
 };
+
+export type FiltersAction = ISetCategoryAction | ISetSortByAction;

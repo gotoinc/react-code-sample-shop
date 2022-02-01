@@ -6,7 +6,15 @@
       "name": "Pepperoni fresh",
       "types": [0, 1],
       "sizes": [26, 30, 40],
-      "price": 25,
+      "prices": [
+        {"size": 26, "type": 0, "price": 20},
+        {"size": 30, "type": 0, "price": 22},
+        {"size": 40, "type": 0, "price": 24},
+        {"size": 26, "type": 1, "price": 23},
+        {"size": 30, "type": 1, "price": 26},
+        {"size": 40, "type": 1, "price": 29}
+      ],
+      "price": 20,
       "category": 0,
       "rating": 4
     },
@@ -16,7 +24,11 @@
       "name": "Quattro Formaggi",
       "types": [0],
       "sizes": [26, 40],
-      "price": 20,
+      "prices": [
+        {"size": 26, "type": 0, "price": 15},
+        {"size": 40, "type": 0, "price": 20}
+      ],
+      "price": 15,
       "category": 1,
       "rating": 6
     },
@@ -26,7 +38,11 @@
       "name": "BBQ chicken",
       "types": [0],
       "sizes": [26, 40],
-      "price": 30,
+      "prices": [
+        {"size": 26, "type": 0, "price": 25},
+        {"size": 40, "type": 0, "price": 30}
+      ],
+      "price": 25,
       "category": 1,
       "rating": 4
     },
@@ -36,7 +52,12 @@
       "name": "Sweet-and-sour chicken",
       "types": [1],
       "sizes": [26, 30, 40],
-      "price": 30,
+      "prices": [
+        {"size": 26, "type": 1, "price": 27},
+        {"size": 30, "type": 1, "price": 30},
+        {"size": 40, "type": 1, "price": 32}
+      ],
+      "price": 27,
       "category": 2,
       "rating": 2
     },
@@ -46,6 +67,14 @@
       "name": "Cheeseburger",
       "types": [0, 1],
       "sizes": [26, 30, 40],
+      "prices": [
+        {"size": 26, "type": 0, "price": 20},
+        {"size": 30, "type": 0, "price": 22},
+        {"size": 40, "type": 0, "price": 24},
+        {"size": 26, "type": 1, "price": 23},
+        {"size": 30, "type": 1, "price": 26},
+        {"size": 40, "type": 1, "price": 29}
+      ],
       "price": 20,
       "category": 3,
       "rating": 8
@@ -56,6 +85,10 @@
       "name": "Crazy pepperoni",
       "types": [0],
       "sizes": [30, 40],
+      "prices": [
+        {"size": 30, "type": 0, "price": 25},
+        {"size": 40, "type": 0, "price": 30}
+      ],
       "price": 25,
       "category": 2,
       "rating": 2
@@ -66,6 +99,14 @@
       "name": "Pepperoni",
       "types": [0, 1],
       "sizes": [26, 30, 40],
+      "prices": [
+        {"size": 26, "type": 0, "price": 15},
+        {"size": 30, "type": 0, "price": 17},
+        {"size": 40, "type": 0, "price": 20},
+        {"size": 26, "type": 1, "price": 18},
+        {"size": 30, "type": 1, "price": 22},
+        {"size": 40, "type": 1, "price": 25}
+      ],
       "price": 15,
       "category": 1,
       "rating": 9
@@ -76,6 +117,14 @@
       "name": "Margherita",
       "types": [0, 1],
       "sizes": [26, 30, 40],
+      "prices": [
+        {"size": 26, "type": 0, "price": 25},
+        {"size": 30, "type": 0, "price": 27},
+        {"size": 40, "type": 0, "price": 30},
+        {"size": 26, "type": 1, "price": 27},
+        {"size": 30, "type": 1, "price": 30},
+        {"size": 40, "type": 1, "price": 32}
+      ],
       "price": 25,
       "category": 4,
       "rating": 10
@@ -86,6 +135,14 @@
       "name": "Quattro Stagioni",
       "types": [0, 1],
       "sizes": [26, 30, 40],
+      "prices": [
+        {"size": 26, "type": 0, "price": 40},
+        {"size": 30, "type": 0, "price": 42},
+        {"size": 40, "type": 0, "price": 44},
+        {"size": 26, "type": 1, "price": 41},
+        {"size": 30, "type": 1, "price": 43},
+        {"size": 40, "type": 1, "price": 45}
+      ],
       "price": 40,
       "category": 5,
       "rating": 10
@@ -96,6 +153,14 @@
       "name": "With mushrooms",
       "types": [0, 1],
       "sizes": [26, 30, 40],
+      "prices": [
+        {"size": 26, "type": 0, "price": 20},
+        {"size": 30, "type": 0, "price": 22},
+        {"size": 40, "type": 0, "price": 24},
+        {"size": 26, "type": 1, "price": 23},
+        {"size": 30, "type": 1, "price": 26},
+        {"size": 40, "type": 1, "price": 29}
+      ],
       "price": 20,
       "category": 5,
       "rating": 7

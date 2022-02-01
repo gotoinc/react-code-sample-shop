@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Categories from '../components/Categories';
+import Categories from '../components/Categories/Categories';
 
 const mockItems = ['bar', 'foo', 'baz'];
 describe('Categories', () => {

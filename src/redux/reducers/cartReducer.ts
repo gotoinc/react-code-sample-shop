@@ -1,4 +1,5 @@
-import { IAddPizzaToCart, ICurrentId, IPizzaObj } from '../actions/cartActions';
+import { getTotalPrice, getTotalSum } from './../../helpers/calculations';
+import { CartActions } from './../actions/cartActions';
 import { CartActionTypes } from '../constants/cartActionTypes';
 import { ICartState } from './interfaces';
 
@@ -7,25 +8,6 @@ const initialState: ICartState = {
   totalPrice: 0,
   totalCount: 0,
   pizzaOrderCounter: {},
-};
-
-type CartActions = ICurrentId | IAddPizzaToCart | IPizzaObj | any;
-
-const getTotalPrice = (arr: any[]) =>
-  arr.reduce((sum, obj) => obj.price + sum, 0);
-
-const _get = (obj: any, path: string) => {
-  const [firstKey, ...keys] = path.split('.');
-  return keys.reduce((val, key) => {
-    return val[key];
-  }, obj[firstKey]);
-};
-
-const getTotalSum = (obj: any, path: string) => {
-  return Object.values(obj).reduce((sum, obj) => {
-    const value = _get(obj, path);
-    return sum + value;
-  }, 0);
 };
 
 export const cart = (state = initialState, action: CartActions): ICartState => {
@@ -63,7 +45,6 @@ export const cart = (state = initialState, action: CartActions): ICartState => {
     }
 
     case CartActionTypes.REMOVE_CART_ITEM: {
-      console.log(action.payload);
       const newItems = {
         ...state.items,
       };
@@ -74,7 +55,7 @@ export const cart = (state = initialState, action: CartActions): ICartState => {
         ...state.pizzaOrderCounter,
         [action.payload.id]:
           state.pizzaOrderCounter[action.payload.id] -
-          action.payload.removedPizzaAmount,
+          (action.payload.removedPizzaAmount || 0),
       };
       return {
         ...state,

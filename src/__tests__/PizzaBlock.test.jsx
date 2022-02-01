@@ -3,7 +3,7 @@ import React from 'react';
 import { PizzaBlock } from '../components';
 
 const types = [0, 1];
-const sizes = [26, 30, 40];
+const sizes = [26, 30];
 
 describe('PizzaBlock', () => {
   const title = 'test title';

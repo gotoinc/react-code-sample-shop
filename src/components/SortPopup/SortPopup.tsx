@@ -1,16 +1,11 @@
 import React, { FC } from 'react';
-
-import selectIcon from '../assets/img/select-icon.svg'
-
-type ItemType = {
-  name: string;
-  type: string;
-  order: string;
-};
+import selectIcon from '../../assets/img/select-icon.svg'
+import { IItem } from '../../types/types';
+import './SortPopup.scss';
 
 interface ISortPopup {
-  items: ItemType[];
-  onClickSortType: (typeOfPizza: ItemType) => void;
+  items: IItem[];
+  onClickSortType: (item: IItem) => void;
   activeSortType: string;
 }
 
@@ -25,19 +20,22 @@ const SortPopup: FC<ISortPopup> = React.memo(
     const toggleVidiblePopup = () => {
       setVisiblePopup(!visiblePopup);
     };
+
     const handleOutsideClick = (e: any) => {
       if (!e.path.includes(sortRef.current)) {
         setVisiblePopup(false);
       }
     };
+
+    const onSelectItem = (typeOfPizza: IItem) => {
+      onClickSortType(typeOfPizza);
+      setVisiblePopup(false);
+    };
+
     React.useEffect(() => {
       document.body.addEventListener('click', handleOutsideClick);
     }, []);
 
-    const onSelectItem = (typeOfPizza: ItemType) => {
-      onClickSortType(typeOfPizza);
-      setVisiblePopup(false);
-    };
     return (
       <div ref={sortRef} className="sort">
         <div className="sort__label">

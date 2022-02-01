@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { ISortBy } from '../types/types';
 
 export const getPizza = (category: number | null, sortBy: ISortBy) => {

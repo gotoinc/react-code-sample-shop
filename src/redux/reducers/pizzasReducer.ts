@@ -1,13 +1,11 @@
-import { ISetLoaded, ISetPizzas } from '../actions/pizzasActions';
+import { PizzasAction } from './../actions/pizzasActions';
 import { PizzasActionTypes } from '../constants/pizzasActionTypes';
 import { IPizzasState } from './interfaces';
 
-const initialState = {
+const initialState:IPizzasState = {
   items: [],
   isLoaded: false,
 };
-
-type PizzasAction = ISetLoaded | ISetPizzas;
 
 export const pizzas = (
   state = initialState,
