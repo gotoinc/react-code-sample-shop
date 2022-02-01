@@ -1,6 +1,6 @@
 export const categoryNames = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Stuffed'];
 export const sortItems = [
-   { name: 'Popularity', type: 'popular', order: 'desc' },
+   { name: 'Popularity', type: 'rating', order: 'desc' },
    { name: 'Price', type: 'price', order: 'desc' },
    { name: 'Alphabetically', type: 'name', order: 'asc' },
 ];

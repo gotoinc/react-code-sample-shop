@@ -5,7 +5,7 @@ import { IFiltersState } from './interfaces';
 const initialState: IFiltersState = {
   category: null,
   sortBy: {
-    type: 'popular',
+    type: 'rating',
     order: 'desc',
   },
 };
