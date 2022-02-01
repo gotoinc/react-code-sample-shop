@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import rootReducer from '../redux/reducers';
 
 const renderWithRedux = (

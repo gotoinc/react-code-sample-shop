@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import './Button.scss';
 
 interface IButtonProps {
   className?: string;

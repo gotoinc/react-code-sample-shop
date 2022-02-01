@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { Button } from '..';
 import { IPizzaObject } from '../../types/types';
-import minusIcon from '../../assets/img/minus.svg'
-import plusIcon from '../../assets/img/plus.svg'
-import removeIcon from '../../assets/img/trash.svg'
+import minusIcon from '../../assets/img/minus.svg';
+import plusIcon from '../../assets/img/plus.svg';
+import removeIcon from '../../assets/img/trash.svg';
+import './Cart.scss';
 
 interface ICartItem {
   id: number;

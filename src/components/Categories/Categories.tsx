@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import './Categories.scss';
 
 interface ICategories {
   activeCategory: number | null;

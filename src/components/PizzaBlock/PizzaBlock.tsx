@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import classNames from 'classnames';
-import Button from '../Button';
+import Button from '../Button/Button';
 import { IPizza, IPizzaModel, IPrice } from '../../types/types';
 import plusIcon from '../../assets/img/plus.svg'
 import { availableSizes, typeNames } from '../../data';
+import './PizzaBlock.scss';
 
 export interface IPizzaBlock extends IPizza {
   onClickAddPizza: (pizza: IPizzaModel) => void;

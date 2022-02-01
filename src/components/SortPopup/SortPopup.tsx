@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import selectIcon from '../assets/img/select-icon.svg'
-import { IItem } from '../types/types';
+import selectIcon from '../../assets/img/select-icon.svg'
+import { IItem } from '../../types/types';
+import './SortPopup.scss';
 
 interface ISortPopup {
   items: IItem[];
@@ -25,7 +26,7 @@ const SortPopup: FC<ISortPopup> = React.memo(
         setVisiblePopup(false);
       }
     };
-    
+
     const onSelectItem = (typeOfPizza: IItem) => {
       onClickSortType(typeOfPizza);
       setVisiblePopup(false);
