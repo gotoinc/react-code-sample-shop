@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import './Button.scss';
 
 interface IButtonProps {
   className?: string;
   dataTestId?: string;
   outline?: boolean;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 const Button: FC<IButtonProps> = ({
@@ -15,6 +17,7 @@ const Button: FC<IButtonProps> = ({
   onClick,
   children,
   dataTestId,
+  disabled,
 }) => {
   return (
     <button
@@ -23,6 +26,7 @@ const Button: FC<IButtonProps> = ({
       className={classNames('button', className, {
         'button--outline': outline,
       })}
+      disabled={disabled}
     >
       {children}
     </button>

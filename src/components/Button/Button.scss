@@ -1,4 +1,5 @@
-@import '../variables';
+@import '../../scss/variables';
+@import '../../scss/libs/normalize';
 
 .button {
   display: inline-block;
@@ -132,7 +133,7 @@
     padding: 11px 17px;
     background-color: $black;
     border-radius: 14px;
-    transition: all 0.3s ease;
+    transition: all $duration ease;
 
     @media (max-width: $mobile) {
       padding: 8px 12px;

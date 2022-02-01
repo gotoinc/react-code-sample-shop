@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/libs/normalize';
 
 .pizza-block {
   padding: 40px;
@@ -94,7 +95,7 @@
             left: calc(50% - 65px);
             background: #FFFFFF;
             box-shadow: 30px 30px 74px rgba(30, 70, 129, 0.08);
-            border-radius: 6px;            
+            border-radius: 6px;
             padding: 12px 8px;
           }
           &:hover::before{

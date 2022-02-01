@@ -1,19 +1,19 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-import Button from './Button';
-
-import logoSvg from '../assets/img/pizza-logo.svg';
-import cartIcon from '../assets/img/cart.svg';
-import { cartSelector } from '../redux/selectors';
+import Button from '../Button/Button';
+import logoSvg from '../../assets/img/pizza-logo.svg';
+import cartIcon from '../../assets/img/cart.svg';
+import { cartSelector } from '../../redux/selectors';
+import './Header.scss';
 
 const Header: FC = (props) => {
   const { totalPrice, totalCount } = useSelector(cartSelector);
+  const handleClick = () => window.scrollTo(0,0);
 
   return (
-    <div className="header">
-      <div className="container">
+    <header className="header">
+      <div className="container" onClick={handleClick}>
         <Link to="/">
           <div className="header__logo">
             <img width="38" src={logoSvg} alt="Pizza logo" />
@@ -34,7 +34,7 @@ const Header: FC = (props) => {
           </Link>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

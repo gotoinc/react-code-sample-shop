@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import Confirm from '../components/Confirm';
+import Confirm from '../components/Confirm/Confirm';
 
 const title = 'Hello World!';
 
